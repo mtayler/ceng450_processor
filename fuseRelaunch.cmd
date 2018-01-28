@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/mtayler/ceng450/register_file_alu/test_alu_isim_beh.exe" -prj "/home/mtayler/ceng450/register_file_alu/test_alu_beh.prj" "work.test_alu" 
