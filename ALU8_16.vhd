@@ -1,24 +1,31 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    19:24:38 01/27/2018 
--- Design Name: 
--- Module Name:    ALU8_16 - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- ALU8_16.vhd
+-- Implements an ALU unit for a 16 bit processor.
+-- Inputs:
+--		[in]	in1		- operand register 1
+--		[in]	in2		- operand register 2
+--		[in]	alu_mode	- operation to perform
+--		[in]	clk		- clk signal
+--		[in]	rst		- reset signal
 --
--- Dependencies: 
+--		[out]	result	- result of operation
+--		[out]	z_flag	- zero test flag
+--		[out]	n_flag	- negative test flag
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
+--	Operations:
+--		MODE	OP		DESCRIPTION
+--		000	NOP	Do nothing
+--		001	ADD	Add `in1` to `in2`
+--		002	SUB	Subtract `in2` from `in1`
+--		003	MUL	Multiply `in1` with `in2`
+--		004	NAND	Bitwise NAND operation between `in1` and `in2`
+--		005	SHL	Logically shift `in1` left by `in2`
+--		006	SHR	Logically shift `in1` right by `in2`
+--		007	TEST	Test properties of `in1` (`in2` ignored)
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_MISC.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -31,42 +38,41 @@ entity alu is
            clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            result : out  STD_LOGIC_VECTOR (15 downto 0);
-           z_flag : out  STD_LOGIC;
-           n_flag : out  STD_LOGIC);
+           z_flag : out  STD_LOGIC;	-- zero
+           n_flag : out  STD_LOGIC); -- negative
 end alu;
 
 architecture Behavioral of alu is
 
 begin
 
-process(clk) begin
+-- add
+result <= (others => '0') when (rst='1') else
+		std_logic_vector(signed(in1) + signed(in2)) when (alu_mode = "001") else
+		-- sub
+		std_logic_vector(signed(in1) - signed(in2)) when (alu_mode = "010") else
+		-- mult
+		std_logic_vector(resize(signed(in1) * signed(in2), 16)) when (alu_mode = "011") else
+		-- nand
+		in1 nand in2 when (alu_mode = "100") else
+		-- shl
+		std_logic_vector(shift_left(unsigned(in1), to_integer(signed(in2)))) when (alu_mode = "101") else
+		-- shr
+		std_logic_vector(shift_right(unsigned(in1), to_integer(signed(in2)))) when (alu_mode = "110") else
+		-- default
+		(others => '0');
+
+process(clk, rst) begin
 	if (rst='1') then
-		z_flag <= '0';
-		n_flag <= '0';
-		result <= (others => '0');
-	else
-	if (clk='1') then
-		case alu_mode is
-			-- nop
-			when "000" => NULL;
-			-- add
-			when "001" => result <= std_logic_vector(signed(in1) + signed(in2));
-			-- sub
-			when "010" => result <= std_logic_vector(signed(in1) - signed(in2));
-			-- mult
-			when "011" => result <= std_logic_vector(resize(signed(in1) * signed(in2), 16));
-			-- nand
-			when "100" => result <= in1 nand in2;
-			-- shl
-			when "101" => result <= std_logic_vector(shift_left(unsigned(in1), to_integer(signed(in2))));
-			-- shr
-			when "110" => result <= std_logic_vector(shift_right(unsigned(in1), to_integer(signed(in2))));
-			-- test
-			when "111" => if (signed(in1) < 0) then
-				n_flag <= '1'; elsif (signed(in1) = 0) then z_flag <= '1'; end if;
-			when others => NULL;
-		end case;
-	end if;
+		n_flag <= '0'; z_flag <= '0';
+	elsif (clk = '1' and clk'event and alu_mode = "111") then
+		if (signed(in1) < 0) then
+			n_flag <= '1'; z_flag <= '0';
+		elsif (signed(in1) = 0) then
+			n_flag <= '0'; z_flag <= '1';
+		else
+			n_flag <= '0'; z_flag <= '0';
+		end if;
 	end if;
 end process;
 

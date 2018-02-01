@@ -1,22 +1,35 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/mtayler/ceng450/register_file_alu/test_alu_isim_beh.exe -prj /home/mtayler/ceng450/register_file_alu/test_alu_beh.prj work.test_alu 
-ISim P.20131013 (signature 0xfbc00daa)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Running: C:\Xilinx\13.4\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib simprims_ver -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/mfarrow/ceng450_rf_and_alu-master/test_alu_isim_par.exe -prj C:/Users/mfarrow/ceng450_rf_and_alu-master/test_alu_par.prj work.test_alu work.glbl 
+ISim O.87xd (signature 0xc3576ebc)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/mtayler/ceng450/register_file_alu/ALU8_16.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/register_file_alu/ALU8_16TB.vhd" into library work
+Analyzing Verilog file "C:/Users/mfarrow/ceng450_rf_and_alu-master/netgen/par/alu_timesim.v" into library work
+Parsing VHDL file "C:/Users/mfarrow/ceng450_rf_and_alu-master/ALU8_16TB.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 98644 KB
-Fuse CPU Usage: 880 ms
+Compiling module glbl
+Compiling module X_BUF
+Compiling module mux
+Compiling module X_MUX2
+Compiling module X_LUT4(INIT=16'b1010101111101111...
+Compiling module X_XOR2
+Compiling module X_AND2
+Compiling module X_IPAD
+Compiling module X_OPAD
+Compiling module X_OBUF
+Compiling module X_BUFGMUX(LOC="BUFGMUX_X2Y10")
+Compiling module X_INV(LOC="BUFGMUX_X2Y10")
+Compiling module X_MULT18X18SIO(AREG=0,BREG=0,PRE...
+Compiling module ffsrce
+Compiling module X_FF
+Compiling module X_ONE
+Compiling module X_ZERO
+Compiling module alu
 Compiling package standard
 Compiling package std_logic_1164
-Compiling package numeric_std
-Compiling architecture behavioral of entity alu [alu_default]
+Compiling package vl_types
 Compiling architecture behavior of entity test_alu
 Time Resolution for simulation is 1ps.
-Compiled 6 VHDL Units
-Built simulation executable /home/mtayler/ceng450/register_file_alu/test_alu_isim_beh.exe
-Fuse Memory Usage: 670212 KB
-Fuse CPU Usage: 950 ms
-GCC CPU Usage: 220 ms
+Waiting for 1 sub-compilation(s) to finish...
+ERROR:Simulator:904 - Unable to remove previous simulation file isim/test_alu_isim_par.exe.sim/test_alu_isim_par.exe. Please check if you have another instance of this simulation running on your system, terminate it and then recompile your design. System Error Message: boost::filesystem::remove: Access is denied: "isim\test_alu_isim_par.exe.sim\test_alu_isim_par.exe"
+ERROR:Simulator:861 - Failed to link the design
