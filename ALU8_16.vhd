@@ -16,12 +16,12 @@
 --		MODE	OP		DESCRIPTION
 --		000	NOP	Do nothing
 --		001	ADD	Add `in1` to `in2`
---		002	SUB	Subtract `in2` from `in1`
---		003	MUL	Multiply `in1` with `in2`
---		004	NAND	Bitwise NAND operation between `in1` and `in2`
---		005	SHL	Logically shift `in1` left by `in2`
---		006	SHR	Logically shift `in1` right by `in2`
---		007	TEST	Test properties of `in1` (`in2` ignored)
+--		010	SUB	Subtract `in2` from `in1`
+--		011	MUL	Multiply `in1` with `in2`
+--		100	NAND	Bitwise NAND operation between `in1` and `in2`
+--		101	SHL	Logically shift `in1` left by `in2`
+--		110	SHR	Logically shift `in1` right by `in2`
+--		111	TEST	Test properties of `in1` (`in2` ignored)
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -38,21 +38,31 @@ entity alu is
            clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            result : out  STD_LOGIC_VECTOR (15 downto 0);
+			  mult: out STD_LOGIC_VECTOR (15 downto 0);
            z_flag : out  STD_LOGIC;	-- zero
            n_flag : out  STD_LOGIC); -- negative
 end alu;
 
 architecture Behavioral of alu is
 
+-- signal mult_temp : STD_LOGIC_VECTOR (31 downto 0);
+
+function slice_slv(x : signed; s, e : integer)
+		return STD_LOGIC_VECTOR is
+	begin
+		return std_logic_vector(x(s downto e));
+	end slice_slv;
+
 begin
 
--- add
+-- mult_temp <= std_logic_vector(signed(in1) * signed(in2)) when (alu_mode = "011");
+
 result <= (others => '0') when (rst='1') else
 		std_logic_vector(signed(in1) + signed(in2)) when (alu_mode = "001") else
 		-- sub
 		std_logic_vector(signed(in1) - signed(in2)) when (alu_mode = "010") else
 		-- mult
-		std_logic_vector(resize(signed(in1) * signed(in2), 16)) when (alu_mode = "011") else
+		slice_slv(signed(in1) * signed(in2),15,0) when (alu_mode = "011") else
 		-- nand
 		in1 nand in2 when (alu_mode = "100") else
 		-- shl
@@ -61,6 +71,10 @@ result <= (others => '0') when (rst='1') else
 		std_logic_vector(shift_right(unsigned(in1), to_integer(signed(in2)))) when (alu_mode = "110") else
 		-- default
 		(others => '0');
+		
+mult <= (others => '0') when (rst='1')
+	else slice_slv(signed(in1) * signed(in2),31,16) when (alu_mode = "011") else
+	(others => '0');
 
 process(clk, rst) begin
 	if (rst='1') then

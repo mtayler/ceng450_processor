@@ -47,6 +47,7 @@ ARCHITECTURE behavior OF test_alu IS
          clk : IN  std_logic;
          rst : IN  std_logic;
          result : OUT  std_logic_vector(15 downto 0);
+			mult : OUT std_logic_vector(15 downto 0);
          z_flag : OUT  std_logic;
          n_flag : OUT  std_logic
         );
@@ -62,6 +63,7 @@ ARCHITECTURE behavior OF test_alu IS
 
  	--Outputs
    signal result : std_logic_vector(15 downto 0);
+	signal mult : std_logic_vector(15 downto 0);
    signal z_flag : std_logic;
    signal n_flag : std_logic;
 
@@ -78,6 +80,7 @@ BEGIN
           clk => clk,
           rst => rst,
           result => result,
+			 mult => mult,
           z_flag => z_flag,
           n_flag => n_flag
         );
@@ -112,7 +115,7 @@ BEGIN
 		-- sub
 		wait until rising_edge(clk); alu_mode <= "010";
 		-- mult
-		wait until rising_edge(clk); in1 <= x"0010"; in2 <= x"0004"; alu_mode <= "011";
+		wait until rising_edge(clk); in1 <= x"0352"; in2 <= x"0529"; alu_mode <= "011"; -- = 0x00F3 0x40F3
 		-- nand
 		wait until rising_edge(clk); in1 <= x"ff07"; in2 <= x"f0fc"; alu_mode <= "100";
 		-- shl
