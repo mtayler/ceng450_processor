@@ -75,5 +75,7 @@ xst/
 _ngo/
 _xmsgs/
 
+*/temp/
+
 
 # End of https://www.gitignore.io/api/xilinxise
