@@ -35,7 +35,8 @@ entity control_unit is
 			 opcode : IN  std_logic_vector(6 downto 0);
           alu_mode : OUT  std_logic_vector(2 downto 0);
 			 a_instr_sel : OUT std_logic;
-			 wr_instr : OUT std_logic
+			 wr_instr : OUT std_logic;
+			 out_instr : OUT std_logic
 	);
 end control_unit;
 
@@ -46,6 +47,7 @@ begin
 alu_mode <= opcode(2 downto 0) when (rst='0' AND (unsigned(opcode)<=7 OR (unsigned(opcode)>=32 AND unsigned(opcode)<=33))) else "000";
 a_instr_sel <= '1' when (rst='0' AND (unsigned(opcode)=5 OR unsigned(opcode)=6)) else '0';
 wr_instr <= '1' when (rst='0' AND ((unsigned(opcode)>=1 AND unsigned(opcode)<=7) OR (unsigned(opcode)>=32 AND unsigned(opcode)<=33))) else '0';
+out_instr <= '1' when (rst='0' AND unsigned(opcode)=32) else '0';
 
 end Behavioral;
 

@@ -91,16 +91,9 @@ BEGIN
       wait for 100 ns;
 
 		rst <= '0';
-      wait for clk_period*10;
 
       -- insert stimulus here
-		inport <= x"00ad";
-		instruction <= "0100001000000000";
-		wait for clk_period;
-		instruction <= "0100001001000000";
-		inport <= x"de00";
-		wait for clk_period;
-		instruction <= "0000001010000001";
+		inport <= x"0005";
 
       wait;
    end process;

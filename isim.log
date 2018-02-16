@@ -14,83 +14,91 @@ at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metaval
 at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 Finished circuit initialization process.
 at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-# restart
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 400 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Finished circuit initialization process.
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 400 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Finished circuit initialization process.
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 400 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Finished circuit initialization process.
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 400 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Finished circuit initialization process.
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 # run 1.00us
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-# run 1.00us
-# run 1.00us
-# run 1.00us
-# restart
-# run all
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Stopped at time : 6738095 ns : File "/home/mtayler/ceng450/processor/processor.vhd" Line 287
-# restart
-# run 1.00us
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-# restart
-# run 400ns
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -102,82 +110,12 @@ at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metaval
 at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-ISim P.20131013 (signature 0xfbc00daa)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 400 ns
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 100 ns(1), Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-ISim P.20131013 (signature 0xfbc00daa)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 400 ns
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-ISim P.20131013 (signature 0xfbc00daa)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 400 ns
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-ISim P.20131013 (signature 0xfbc00daa)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 400 ns
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
@@ -194,9 +132,8 @@ at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue dete
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -212,42 +149,6 @@ at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue dete
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
 at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-ISim P.20131013 (signature 0xfbc00daa)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 400 ns
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-ISim P.20131013 (signature 0xfbc00daa)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 400 ns
-Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-Finished circuit initialization process.
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 10 ns(2), Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# exit 0
