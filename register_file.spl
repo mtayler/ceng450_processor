@@ -1,0 +1,12 @@
+[Inputs]
+rst
+clk
+wr_enable
+=rd_index1[2:0]=
+=rd_index2[2:0]=
+=wr_index[2:0]=
+=wr_data[15:0]=
+[Outputs]
+=rd_data1[15:0]=
+=rd_data2[15:0]=
+[BiDir]

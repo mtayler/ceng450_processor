@@ -13,8 +13,8 @@ rd_data1: out std_logic_vector(15 downto 0);
 rd_data2: out std_logic_vector(15 downto 0);
 --write signals
 wr_index: in std_logic_vector(2 downto 0); 
-wr_data: in std_logic_vector(15 downto 0)
---wr_enable: in std_logic
+wr_data: in std_logic_vector(15 downto 0);
+wr_enable: in std_logic
 );
 end register_file;
 
@@ -31,8 +31,7 @@ begin
 			for i in 0 to 7 loop
 				reg_file(i)<= (others => '0'); 
 			end loop;
-		--elsif (wr_enable='1') then
-		else
+		elsif (wr_enable='1') then
 			reg_file(to_integer(unsigned(wr_index))) <= wr_data;
 		end if;
 	end if;

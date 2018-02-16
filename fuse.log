@@ -1,22 +1,33 @@
-Running: C:\Xilinx\13.4\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/mfarrow/ceng450_rf_and_alu-master/test_alu_isim_beh.exe -prj C:/Users/mfarrow/ceng450_rf_and_alu-master/test_alu_beh.prj work.test_alu 
-ISim O.87xd (signature 0xc3576ebc)
-Number of CPUs detected in this system: 8
-Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -o "/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe" -prj "/home/mtayler/ceng450/processor/PROC_16TB_beh.prj" "work.PROC_16TB" 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/mfarrow/ceng450_rf_and_alu-master/ALU8_16.vhd" into library work
-Parsing VHDL file "C:/Users/mfarrow/ceng450_rf_and_alu-master/ALU8_16TB.vhd" into library work
+Parsing VHDL file "/home/mtayler/ceng450/processor/RF8_16.vhd" into library work
+Parsing VHDL file "/home/mtayler/ceng450/processor/control_unit.vhd" into library work
+Parsing VHDL file "/home/mtayler/ceng450/processor/ALU8_16.vhd" into library work
+Parsing VHDL file "/home/mtayler/ceng450/processor/processor.vhd" into library work
+Parsing VHDL file "/home/mtayler/ceng450/processor/PROC_16TB.vhd" into library work
 Starting static elaboration
 Completed static elaboration
+Fuse Memory Usage: 100324 KB
+Fuse CPU Usage: 1090 ms
 Compiling package standard
 Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
 Compiling package attributes
 Compiling package std_logic_misc
-Compiling package numeric_std
+Compiling architecture behavioural of entity register_file [register_file_default]
 Compiling architecture behavioral of entity alu [alu_default]
-Compiling architecture behavior of entity test_alu
+Compiling architecture behavioral of entity control_unit [control_unit_default]
+Compiling architecture behavioral of entity processor [processor_default]
+Compiling architecture behavior of entity proc_16tb
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 8 VHDL Units
-Built simulation executable C:/Users/mfarrow/ceng450_rf_and_alu-master/test_alu_isim_beh.exe
-Fuse Memory Usage: 36600 KB
-Fuse CPU Usage: 373 ms
+Compiled 16 VHDL Units
+Built simulation executable /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe
+Fuse Memory Usage: 680684 KB
+Fuse CPU Usage: 1220 ms
+GCC CPU Usage: 240 ms

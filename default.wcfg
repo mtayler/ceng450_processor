@@ -3,61 +3,228 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/mtayler/ceng450/register_file_alu/test_alu_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.wdb" id="1" type="auto">
          <top_modules>
+            <top_module name="attributes" />
             <top_module name="numeric_std" />
+            <top_module name="proc_16tb" />
             <top_module name="std_logic_1164" />
-            <top_module name="test_alu" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_misc" />
+            <top_module name="std_logic_unsigned" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="9" />
-   <wvobject fp_name="/test_alu/in1" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">in1[15:0]</obj_property>
-      <obj_property name="ObjectShortName">in1[15:0]</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#ffff00</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_alu/in2" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">in2[15:0]</obj_property>
-      <obj_property name="ObjectShortName">in2[15:0]</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#ffa500</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_alu/alu_mode" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">alu_mode[2:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_mode[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_alu/clk" type="logic" db_ref_id="1">
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/proc_16tb/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_alu/rst" type="logic" db_ref_id="1">
+   <wvobject fp_name="/proc_16tb/rst" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#808080</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_alu/result" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">result[15:0]</obj_property>
-      <obj_property name="ObjectShortName">result[15:0]</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   <wvobject fp_name="/proc_16tb/instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction[15:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_alu/z_flag" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">z_flag</obj_property>
-      <obj_property name="ObjectShortName">z_flag</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   <wvobject fp_name="/proc_16tb/inport" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inport[15:0]</obj_property>
+      <obj_property name="ObjectShortName">inport[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_alu/n_flag" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">n_flag</obj_property>
-      <obj_property name="ObjectShortName">n_flag</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
+   <wvobject fp_name="/proc_16tb/outport" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outport[15:0]</obj_property>
+      <obj_property name="ObjectShortName">outport[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_alu/clk_period" type="other" db_ref_id="1">
+   <wvobject fp_name="/proc_16tb/clk_period" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">clk_period</obj_property>
       <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="group26" type="group">
+      <obj_property name="label">rf0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="divider15" type="divider">
+         <obj_property name="label">rf0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="BkColor">128 128 255</obj_property>
+         <obj_property name="TextColor">230 230 230</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/rd_index1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rd_index1[2:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_index1[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/rd_index2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rd_index2[2:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_index2[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/rd_data1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rd_data1[15:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_data1[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/rd_data2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rd_data2[15:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_data2[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/wr_index" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">wr_index[2:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_index[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/wr_data" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">wr_data[15:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_data[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/wr_enable" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wr_enable</obj_property>
+         <obj_property name="ObjectShortName">wr_enable</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rf0/reg_file" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_file[0:7]</obj_property>
+         <obj_property name="ObjectShortName">reg_file[0:7]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group28" type="group">
+      <obj_property name="label">alu0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="divider27" type="divider">
+         <obj_property name="label">alu0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="BkColor">128 128 255</obj_property>
+         <obj_property name="TextColor">230 230 230</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/alu0/in1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">in1[15:0]</obj_property>
+         <obj_property name="ObjectShortName">in1[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/alu0/in2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">in2[15:0]</obj_property>
+         <obj_property name="ObjectShortName">in2[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/alu0/alu_mode" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">alu_mode[2:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_mode[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/alu0/result" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">result[15:0]</obj_property>
+         <obj_property name="ObjectShortName">result[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/alu0/overflow" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">overflow[15:0]</obj_property>
+         <obj_property name="ObjectShortName">overflow[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/alu0/z_flag" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">z_flag</obj_property>
+         <obj_property name="ObjectShortName">z_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/alu0/n_flag" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">n_flag</obj_property>
+         <obj_property name="ObjectShortName">n_flag</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group14" type="group">
+      <obj_property name="label">cu0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="divider12" type="divider">
+         <obj_property name="label">cu0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="BkColor">128 128 255</obj_property>
+         <obj_property name="TextColor">230 230 230</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/cu0/opcode" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">opcode[6:0]</obj_property>
+         <obj_property name="ObjectShortName">opcode[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/cu0/alu_mode" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">alu_mode[2:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_mode[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/cu0/a_instr_sel" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">a_instr_sel</obj_property>
+         <obj_property name="ObjectShortName">a_instr_sel</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/cu0/wr_instr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wr_instr</obj_property>
+         <obj_property name="ObjectShortName">wr_instr</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group52" type="group">
+      <obj_property name="label">pipeline_registers</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/proc_16tb/uut/reg_instructionfetch" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_instructionfetch</obj_property>
+         <obj_property name="ObjectShortName">reg_instructionfetch</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_instructionfetch.opcode" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.opcode</obj_property>
+            <obj_property name="ObjectShortName">reg_instructionfetch.opcode</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_instructionfetch.data" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.data</obj_property>
+            <obj_property name="ObjectShortName">reg_instructionfetch.data</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_instructionfetch.inport" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.inport</obj_property>
+            <obj_property name="ObjectShortName">reg_instructionfetch.inport</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/reg_instructiondecode" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_instructiondecode</obj_property>
+         <obj_property name="ObjectShortName">reg_instructiondecode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/reg_execute" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_execute</obj_property>
+         <obj_property name="ObjectShortName">reg_execute</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_execute.ra" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.ra</obj_property>
+            <obj_property name="ObjectShortName">reg_execute.ra</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_execute.addr" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.addr</obj_property>
+            <obj_property name="ObjectShortName">reg_execute.addr</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_execute.wr_instr" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.wr_instr</obj_property>
+            <obj_property name="ObjectShortName">reg_execute.wr_instr</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_execute.alu_result" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.alu_result</obj_property>
+            <obj_property name="ObjectShortName">reg_execute.alu_result</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_execute.alu_overflow" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.alu_overflow</obj_property>
+            <obj_property name="ObjectShortName">reg_execute.alu_overflow</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_execute.z_flag" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.z_flag</obj_property>
+            <obj_property name="ObjectShortName">reg_execute.z_flag</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_execute.n_flag" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.n_flag</obj_property>
+            <obj_property name="ObjectShortName">reg_execute.n_flag</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/reg_mem" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_mem</obj_property>
+         <obj_property name="ObjectShortName">reg_mem</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffa500</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>

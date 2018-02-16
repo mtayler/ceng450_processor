@@ -1,0 +1,12 @@
+[Inputs]
+clk
+rst
+=in1[15:0]=
+=in2[15:0]=
+=alu_mode[2:0]=
+[Outputs]
+z_flag
+n_flag
+=result[15:0]=
+=overflow[15:0]=
+[BiDir]

@@ -47,7 +47,7 @@ ARCHITECTURE behavior OF test_alu IS
          clk : IN  std_logic;
          rst : IN  std_logic;
          result : OUT  std_logic_vector(15 downto 0);
-			mult : OUT std_logic_vector(15 downto 0);
+			overflow : OUT std_logic_vector(15 downto 0);
          z_flag : OUT  std_logic;
          n_flag : OUT  std_logic
         );
