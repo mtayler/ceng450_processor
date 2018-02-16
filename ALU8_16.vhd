@@ -38,14 +38,12 @@ entity alu is
            clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            result : out  STD_LOGIC_VECTOR (15 downto 0);
-			  mult: out STD_LOGIC_VECTOR (15 downto 0);
+			  overflow: out STD_LOGIC_VECTOR (15 downto 0);
            z_flag : out  STD_LOGIC;	-- zero
            n_flag : out  STD_LOGIC); -- negative
 end alu;
 
 architecture Behavioral of alu is
-
--- signal mult_temp : STD_LOGIC_VECTOR (31 downto 0);
 
 function slice_slv(x : signed; s, e : integer)
 		return STD_LOGIC_VECTOR is
@@ -54,8 +52,6 @@ function slice_slv(x : signed; s, e : integer)
 	end slice_slv;
 
 begin
-
--- mult_temp <= std_logic_vector(signed(in1) * signed(in2)) when (alu_mode = "011");
 
 result <= (others => '0') when (rst='1') else
 		std_logic_vector(signed(in1) + signed(in2)) when (alu_mode = "001") else
@@ -72,7 +68,7 @@ result <= (others => '0') when (rst='1') else
 		-- default
 		(others => '0');
 		
-mult <= (others => '0') when (rst='1')
+overflow <= (others => '0') when (rst='1')
 	else slice_slv(signed(in1) * signed(in2),31,16) when (alu_mode = "011") else
 	(others => '0');
 
