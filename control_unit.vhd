@@ -44,9 +44,9 @@ architecture Behavioral of control_unit is
 
 begin
 
-alu_mode <= opcode(2 downto 0) when (rst='0' AND (unsigned(opcode)<=7 OR (unsigned(opcode)>=32 AND unsigned(opcode)<=33))) else "000";
-a_instr_sel <= '1' when (rst='0' AND (unsigned(opcode)=5 OR unsigned(opcode)=6)) else '0';
-wr_instr <= '1' when (rst='0' AND ((unsigned(opcode)>=1 AND unsigned(opcode)<=7) OR (unsigned(opcode)>=32 AND unsigned(opcode)<=33))) else '0';
+alu_mode <= opcode(2 downto 0) when (rst='0' AND (unsigned(opcode)<=7 OR unsigned(opcode)=33)) else "001" when (rst='0' AND unsigned(opcode)=32) else "000";
+a_instr_sel <= '1' when (rst='0' AND (unsigned(opcode)=5 OR unsigned(opcode)=6 OR unsigned(opcode)=32)) else '0';
+wr_instr <= '1' when (rst='0' AND ((unsigned(opcode)>=1 AND unsigned(opcode)<=7) OR unsigned(opcode)=33)) else '0';
 out_instr <= '1' when (rst='0' AND unsigned(opcode)=32) else '0';
 
 end Behavioral;

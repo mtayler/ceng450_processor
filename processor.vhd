@@ -276,17 +276,18 @@ begin
 			else
 				wr_enable <= '0';
 			end if;
-			if (reg_execute.out_instr='1') then
-				outport <= reg_mem.data;
-			else
-				outport <= (others => '0');
-			end if;
 									
 			-- MEM
 			reg_mem.addr <= reg_execute.ra;
 			reg_mem.wr_instr <= reg_execute.wr_instr;
 			reg_mem.data <= reg_execute.alu_result;
 			reg_mem.overflow <= reg_execute.alu_overflow;
+			
+			if (reg_execute.out_instr='1') then
+				outport <= reg_execute.alu_result;
+			else
+				outport <= (others => '0');
+			end if;
 			
 			-- EXECUTE
 			reg_execute.ra <= reg_instructionDecode.ra;
@@ -313,7 +314,11 @@ begin
 			elsif (a_instr_sel='1') then
 				-- ra and cl (immediate)
 				reg_instructionDecode.data1 <= rd_data1;
-				reg_instructionDecode.data2 <= std_logic_vector(resize(signed(reg_instructionFetch.data(3 downto 0)),16));
+				if (out_instr='0') then -- take cl
+					reg_instructionDecode.data2 <= std_logic_vector(resize(signed(reg_instructionFetch.data(3 downto 0)),16));
+				else -- ignore cl (short to 0)
+					reg_instructionDecode.data2 <= x"0000";
+				end if;
 			else
 				-- rb and rd_data2 (reg)
 				reg_instructionDecode.data1 <= rd_data1;
