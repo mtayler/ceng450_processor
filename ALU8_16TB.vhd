@@ -63,7 +63,7 @@ ARCHITECTURE behavior OF test_alu IS
 
  	--Outputs
    signal result : std_logic_vector(15 downto 0);
-	signal mult : std_logic_vector(15 downto 0);
+	signal overflow : std_logic_vector(15 downto 0);
    signal z_flag : std_logic;
    signal n_flag : std_logic;
 
@@ -80,7 +80,7 @@ BEGIN
           clk => clk,
           rst => rst,
           result => result,
-			 mult => mult,
+			 overflow => overflow,
           z_flag => z_flag,
           n_flag => n_flag
         );
@@ -116,6 +116,7 @@ BEGIN
 		wait until rising_edge(clk); alu_mode <= "010";
 		-- mult
 		wait until rising_edge(clk); in1 <= x"0352"; in2 <= x"0529"; alu_mode <= "011"; -- = 0x00F3 0x40F3
+		wait until rising_edge(clk); alu_mode <= "000"; -- Test NOP's effect on overflow
 		-- nand
 		wait until rising_edge(clk); in1 <= x"ff07"; in2 <= x"f0fc"; alu_mode <= "100";
 		-- shl
@@ -126,6 +127,10 @@ BEGIN
 		wait until rising_edge(clk); in1 <= x"0001"; alu_mode <= "111";
 		wait until rising_edge(clk); in1 <= x"fff1";
 		wait until rising_edge(clk); in1 <= x"0000";
+		-- mult overwrite overflow
+		wait until rising_edge(clk); in1 <= x"0000"; in2 <= x"0000"; alu_mode <= "011"; -- = 0x0000 0x0000
+		-- test overwrite
+		wait until rising_edge(clk); in1 <= x"0001"; alu_mode <= "111";
 
       wait;
    end process;

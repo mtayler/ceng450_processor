@@ -129,9 +129,9 @@ architecture Behavioral of processor is
 	
 	type t_Mem is record
 		addr : std_logic_vector(2 downto 0);
-		wr_instr : std_logic;
 		data : std_logic_vector(15 downto 0);
 		overflow : std_logic_vector(15 downto 0);
+		wr_instr : std_logic;
 	end record t_Mem;
 	
 	signal reg_instructionFetch : t_InstructionFetch := (opcode => "0000000",
@@ -266,16 +266,21 @@ begin
 			outport <= (others => '0');
 		-- Stages in reverse order so stages cascade rather than updating at once
 		else -- (not rst)
+		
+		-- TODO: remove control unit, distribute control code, passthrough instruction
 		if rising_edge(clk) then
 			-- WRITEBACK
 			wr_index <= reg_mem.addr;
 			wr_data <= reg_mem.data;
 			
+			-- only writeback on ADD->SHIFT instructions or IN instruction
 			if (reg_mem.wr_instr='1') then
 				wr_enable <= '1';
 			else
 				wr_enable <= '0';
 			end if;
+			
+			-- TODO: add overflow writeback for mutliply instructions
 									
 			-- MEM
 			reg_mem.addr <= reg_execute.ra;

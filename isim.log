@@ -1,5 +1,5 @@
 ISim log file
-Running: /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.wdb 
+Running: /home/mtayler/ceng450/processor/PROC_16TB_isim_par.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/mtayler/ceng450/processor/PROC_16TB_isim_par.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -8,18 +8,104 @@ This is a Lite version of ISim.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
-# run 400 ns
+# run 1000 ns
 Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-at 0 ps, Instance /proc_16tb/uut/cu0/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+INFO: SDF backannotation was successful with SDF file netgen/par/processor_timesim.sdf, for root module /proc_16tb/uut/.
 Finished circuit initialization process.
+WARNING: at 102840 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_2_8/  $setuphold( CLK:102840 ps, SRST:102343 ps,793 ps,-490 ps)
+
+
+WARNING: at 102840 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_2_9/  $setuphold( CLK:102840 ps, SRST:102343 ps,793 ps,-490 ps)
+
+
+WARNING: at 102840 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_7_8/  $setuphold( CLK:102840 ps, SRST:102343 ps,793 ps,-490 ps)
+
+
+WARNING: at 102840 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_7_9/  $setuphold( CLK:102840 ps, SRST:102343 ps,793 ps,-490 ps)
+
+
+WARNING: at 102842 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_3_8/  $setuphold( CLK:102842 ps, SRST:102342 ps,793 ps,-490 ps)
+
+
+WARNING: at 102842 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_3_9/  $setuphold( CLK:102842 ps, SRST:102342 ps,793 ps,-490 ps)
+
+
+WARNING: at 102842 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_5_8/  $setuphold( CLK:102842 ps, SRST:102342 ps,793 ps,-490 ps)
+
+
+WARNING: at 102842 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_5_9/  $setuphold( CLK:102842 ps, SRST:102342 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_0_8/  $setuphold( CLK:102843 ps, SRST:102313 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_0_9/  $setuphold( CLK:102843 ps, SRST:102313 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_1_8/  $setuphold( CLK:102843 ps, SRST:102341 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_1_9/  $setuphold( CLK:102843 ps, SRST:102341 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_4_8/  $setuphold( CLK:102843 ps, SRST:102313 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_4_9/  $setuphold( CLK:102843 ps, SRST:102313 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_6_8/  $setuphold( CLK:102843 ps, SRST:102313 ps,793 ps,-490 ps)
+
+
+WARNING: at 102843 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_6_9/  $setuphold( CLK:102843 ps, SRST:102313 ps,793 ps,-490 ps)
+
+
+WARNING: at 102844 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_0_0/  $setuphold( CLK:102844 ps, SRST:102349 ps,793 ps,-490 ps)
+
+
+WARNING: at 102844 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_0_1/  $setuphold( CLK:102844 ps, SRST:102349 ps,793 ps,-490 ps)
+
+
+WARNING: at 102844 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_2_0/  $setuphold( CLK:102844 ps, SRST:102340 ps,793 ps,-490 ps)
+
+
+WARNING: at 102844 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_2_1/  $setuphold( CLK:102844 ps, SRST:102340 ps,793 ps,-490 ps)
+
+
+WARNING: at 102844 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_5_0/  $setuphold( CLK:102844 ps, SRST:102349 ps,793 ps,-490 ps)
+
+
+WARNING: at 102844 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_5_1/  $setuphold( CLK:102844 ps, SRST:102349 ps,793 ps,-490 ps)
+
+
+WARNING: at 102845 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_4_0/  $setuphold( CLK:102845 ps, SRST:102340 ps,793 ps,-490 ps)
+
+
+WARNING: at 102845 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_4_1/  $setuphold( CLK:102845 ps, SRST:102340 ps,793 ps,-490 ps)
+
+
+WARNING: at 102845 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_6_0/  $setuphold( CLK:102845 ps, SRST:102340 ps,793 ps,-490 ps)
+
+
+WARNING: at 102845 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_6_1/  $setuphold( CLK:102845 ps, SRST:102340 ps,793 ps,-490 ps)
+
+
+WARNING: at 102846 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_1_0/  $setuphold( CLK:102846 ps, SRST:102310 ps,793 ps,-490 ps)
+
+
+WARNING: at 102846 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_1_1/  $setuphold( CLK:102846 ps, SRST:102310 ps,793 ps,-490 ps)
+
+
+WARNING: at 102846 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_3_0/  $setuphold( CLK:102846 ps, SRST:102311 ps,793 ps,-490 ps)
+
+
+WARNING: at 102846 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_3_1/  $setuphold( CLK:102846 ps, SRST:102311 ps,793 ps,-490 ps)
+
+
+WARNING: at 102846 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_7_0/  $setuphold( CLK:102846 ps, SRST:102311 ps,793 ps,-490 ps)
+
+
+WARNING: at 102846 ps: Timing violation in /proc_16tb/uut/rf0/reg_file_7_1/  $setuphold( CLK:102846 ps, SRST:102311 ps,793 ps,-490 ps)
+
+
 # exit 0

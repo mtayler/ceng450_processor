@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -o "/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe" -prj "/home/mtayler/ceng450/processor/PROC_16TB_beh.prj" "work.PROC_16TB" 
+-intstyle "ise" -incremental -lib "simprims_ver" -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/mtayler/ceng450/processor/PROC_16TB_isim_par.exe" -prj "/home/mtayler/ceng450/processor/PROC_16TB_par.prj" "work.PROC_16TB" "work.glbl" 

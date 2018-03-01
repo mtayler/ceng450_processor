@@ -12,13 +12,17 @@ Loading device for application Rf_Device from file '3s1200e.nph' in environment
 Loading constraints from 'processor.pcf'...
 The speed grade (-5) differs from the speed grade specified in the .ncd file
 (-5).
-The number of routable networks is 900
+The number of routable networks is 903
 Processing design ... 
   Preping design's networks ...
   Preping design's macros ...
 
 WARNING:NetListWriters:306 - Signal bus Maddsub_result_addsub0000_cy[14 : 0] on
    block alu is not reconstructed, because there are some missing bus signals.
+
+WARNING:NetListWriters:306 - Signal bus
+   NlwBufferSignal_alu0/Mmult_x_mult0000/A[17 : 0] on block alu is not
+   reconstructed, because there are some missing bus signals.
 Writing Verilog SDF file 'netgen/par/processor_timesim.sdf' ...
 Writing Verilog netlist file
 '/home/mtayler/ceng450/processor/netgen/par/processor_timesim.v' ...
@@ -31,6 +35,6 @@ INFO:NetListWriters - Xilinx recommends running separate simulations to check
    documentation for more details on specifying MIN and MAX field in the SDF.
 INFO:NetListWriters:665 - For more information on how to pass the SDF switches
    to the simulator, see your Simulator tool documentation.
-Number of warnings: 1
+Number of warnings: 2
 Number of info messages: 3
-Total memory usage is 442212 kilobytes
+Total memory usage is 442292 kilobytes

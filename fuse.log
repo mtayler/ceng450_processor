@@ -1,35 +1,48 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe -prj /home/mtayler/ceng450/processor/PROC_16TB_beh.prj work.PROC_16TB 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib simprims_ver -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/mtayler/ceng450/processor/PROC_16TB_isim_par.exe -prj /home/mtayler/ceng450/processor/PROC_16TB_par.prj work.PROC_16TB work.glbl 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/mtayler/ceng450/processor/Test_FormatA_16Bit.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/RF8_16.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/control_unit.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/ALU8_16.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/processor.vhd" into library work
+Analyzing Verilog file "/home/mtayler/ceng450/processor/netgen/par/processor_timesim.v" into library work
 Parsing VHDL file "/home/mtayler/ceng450/processor/PROC_16TB.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 100480 KB
-Fuse CPU Usage: 1000 ms
+Fuse Memory Usage: 115604 KB
+Fuse CPU Usage: 1270 ms
+Compiling module glbl
+Compiling module X_RAMB16_S18(INIT_00=256'b010101...
+Compiling module X_BUF
+Compiling module ROM_VHDL
+Compiling module mux
+Compiling module X_MUX2
+Compiling module X_LUT4(INIT=16'b1101100011011000...
+Compiling module X_INV(LOC="SLICE_X14Y105")
+Compiling module sffsrce
+Compiling module X_SFF
+Compiling module X_ONE
+Compiling module X_ZERO
+Compiling module register_file
+Compiling module control_unit
+Compiling module X_XOR2
+Compiling module X_AND2
+Compiling module X_MULT18X18SIO(AREG=0,BREG=0,PRE...
+Compiling module alu
+Compiling module X_IPAD
+Compiling module X_OPAD
+Compiling module X_OBUF
+Compiling module X_BUFGMUX(LOC="BUFGMUX_X2Y10")
+Compiling module ffsrce
+Compiling module X_FF
+Compiling module processor
 Compiling package standard
 Compiling package std_logic_1164
-Compiling package numeric_std
-Compiling package std_logic_arith
-Compiling package std_logic_unsigned
-Compiling package attributes
-Compiling package std_logic_misc
-Compiling architecture bhv of entity ROM_VHDL [rom_vhdl_default]
-Compiling architecture behavioural of entity register_file [register_file_default]
-Compiling architecture behavioral of entity alu [alu_default]
-Compiling architecture behavioral of entity control_unit [control_unit_default]
-Compiling architecture behavioral of entity processor [processor_default]
+Compiling package vl_types
 Compiling architecture behavior of entity proc_16tb
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 18 VHDL Units
-Built simulation executable /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe
-Fuse Memory Usage: 680764 KB
-Fuse CPU Usage: 1130 ms
-GCC CPU Usage: 510 ms
+Waiting for 6 sub-compilation(s) to finish...
+Compiled 4 VHDL Units
+Compiled 1512 Verilog Units
+Built simulation executable /home/mtayler/ceng450/processor/PROC_16TB_isim_par.exe
+Fuse Memory Usage: 686928 KB
+Fuse CPU Usage: 2610 ms
+GCC CPU Usage: 6830 ms

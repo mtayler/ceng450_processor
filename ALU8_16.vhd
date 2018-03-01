@@ -49,7 +49,7 @@ function slice_slv(x : signed; s, e : integer)
 		return STD_LOGIC_VECTOR is
 	begin
 		return std_logic_vector(x(s downto e));
-	end slice_slv;
+end slice_slv;
 
 begin
 
@@ -70,21 +70,10 @@ result <= (others => '0') when (rst='1') else
 		
 overflow <= (others => '0') when (rst='1')
 	else slice_slv(signed(in1) * signed(in2),31,16) when (alu_mode = "011") else
-	(others => '0');
+	(others => '0') when (alu_mode = "011");
 
-process(clk, rst) begin
-	if (rst='1') then
-		n_flag <= '0'; z_flag <= '0';
-	elsif (clk = '1' and clk'event and alu_mode = "111") then
-		if (signed(in1) < 0) then
-			n_flag <= '1'; z_flag <= '0';
-		elsif (signed(in1) = 0) then
-			n_flag <= '0'; z_flag <= '1';
-		else
-			n_flag <= '0'; z_flag <= '0';
-		end if;
-	end if;
-end process;
+n_flag <= '1' when (alu_mode = "111" and signed(in1) < 0 and rst='0') else '0' when (alu_mode = "111" or rst='1');
+z_flag <= '1' when (alu_mode = "111" and signed(in1) = 0 and rst='0') else '0' when (alu_mode = "111" or rst='1');
 
 end Behavioral;
 
