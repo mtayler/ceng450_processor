@@ -93,7 +93,7 @@ BEGIN
 		rst <= '0';
 
       -- insert stimulus here
-		inport <= x"0005";
+		inport <= x"0212";
 
       wait;
    end process;

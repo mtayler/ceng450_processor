@@ -1,7 +1,0 @@
-[Inputs]
-clk
-=opcode[6:0]=
-[Outputs]
-a_instr_sel
-=alu_mode[2:0]=
-[BiDir]

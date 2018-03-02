@@ -70,7 +70,7 @@ result <= (others => '0') when (rst='1') else
 		
 overflow <= (others => '0') when (rst='1')
 	else slice_slv(signed(in1) * signed(in2),31,16) when (alu_mode = "011") else
-	(others => '0') when (alu_mode = "011");
+	(others => '0') when (alu_mode = "011") else (others => '0');
 
 n_flag <= '1' when (alu_mode = "111" and signed(in1) < 0 and rst='0') else '0' when (alu_mode = "111" or rst='1');
 z_flag <= '1' when (alu_mode = "111" and signed(in1) = 0 and rst='0') else '0' when (alu_mode = "111" or rst='1');

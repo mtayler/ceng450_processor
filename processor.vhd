@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.ALL;
+use IEEE.std_logic_misc.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -41,7 +42,17 @@ end processor;
 
 architecture Behavioral of processor is
 
-	constant instr_size : integer := 1;
+	constant instr_mem_size : integer := 1;
+	
+	function wr_instr(signal opcode : std_logic_vector(6 downto 0)) return boolean is
+	begin
+		return ((unsigned(opcode)>=1 AND unsigned(opcode)<=7) OR unsigned(opcode)=33);
+	end wr_instr;
+	
+	function a2_instr(signal opcode : std_logic_vector(6 downto 0)) return boolean is
+	begin
+		return (unsigned(opcode)=5 OR unsigned(opcode)=6 OR unsigned(opcode)=32);
+	end a2_instr;
 	
 	Component register_file
 	PORT(
@@ -53,7 +64,9 @@ architecture Behavioral of processor is
 		rd_data2 : OUT std_logic_vector(15 downto 0);
 		wr_index : IN std_logic_vector(2 downto 0);
 		wr_data : IN std_logic_vector(15 downto 0);
-		wr_enable : IN std_logic
+		wr_enable : IN std_logic;
+		wr_overflow_data : IN std_logic_vector(15 downto 0);
+		wr_overflow : IN std_logic
 	);
 	end Component;
 
@@ -61,25 +74,13 @@ architecture Behavioral of processor is
 	PORT(
 		in1: IN std_logic_vector(15 downto 0);
 		in2: IN std_logic_vector(15 downto 0);
-		alu_mode : IN  std_logic_vector(2 downto 0);
       clk : IN std_logic;
       rst : IN std_logic;
+		alu_mode : IN std_logic_vector(2 downto 0);
       result : OUT std_logic_vector(15 downto 0);
 		overflow : OUT std_logic_vector(15 downto 0);
       z_flag : OUT  std_logic;
       n_flag : OUT  std_logic
-	);
-	end Component;
-	
-	Component control_unit
-	PORT(
-		rst : IN std_logic;
-		clk : IN std_logic;
-		opcode : IN std_logic_vector(6 downto 0);
-		alu_mode : OUT std_logic_vector(2 downto 0);
-		a_instr_sel : OUT std_logic;
-		wr_instr : OUT std_logic;
-		out_instr : OUT std_logic
 	);
 	end Component;
 	
@@ -101,89 +102,64 @@ architecture Behavioral of processor is
 	);
 	end Component;
 	
-	type t_InstructionFetch is record
-		opcode : std_logic_vector(6 downto 0);
-		data : std_logic_vector(8 downto 0);
+	type t_IF is record
+		instr : std_logic_vector(15 downto 0);
 		inport : std_logic_vector(15 downto 0);
-	end record t_InstructionFetch;
+	end record t_IF;
 	
-	type t_InstructionDecode is record
-		ra : std_logic_vector(2 downto 0);
-		alu_mode : std_logic_vector(2 downto 0);
-		wr_instr : std_logic;
-		out_instr : std_logic;
+	type t_ID is record
+		instr : std_logic_vector(15 downto 0);
 		data1 : std_logic_vector(15 downto 0);
 		data2 : std_logic_vector(15 downto 0);
-	end record t_InstructionDecode;
+	end record t_ID;
 	
-	type t_Execute is record
-		ra : std_logic_vector(2 downto 0);
-		addr : std_logic_vector(15 downto 0);
-		wr_instr : std_logic;
-		out_instr : std_logic;
+	type t_EX is record
+		instr : std_logic_vector(15 downto 0);
 		alu_result : std_logic_vector(15 downto 0);
 		alu_overflow : std_logic_vector(15 downto 0);
 		z_flag : std_logic;
 		n_flag : std_logic;
-	end record t_Execute;
+	end record t_EX;
 	
-	type t_Mem is record
-		addr : std_logic_vector(2 downto 0);
+	type t_WR is record
+		instr : std_logic_vector(15 downto 0);
 		data : std_logic_vector(15 downto 0);
 		overflow : std_logic_vector(15 downto 0);
-		wr_instr : std_logic;
-	end record t_Mem;
+	end record t_WR;
 	
-	signal reg_instructionFetch : t_InstructionFetch := (opcode => "0000000",
-	                                                     data => (others => '0'),
-	                                                     inport => (others => '0'));
+	signal reg_IF : t_IF := (instr => (others => '0'),
+	                         inport => (others => '0'));
 																		  
-	signal reg_instructionDecode : t_InstructionDecode := (ra => "000",
-	                                                       alu_mode => "000",
-	                                                       wr_instr => '0',
-																			 out_instr => '0',
-	                                                       data1 => (others => '0'),
-	                                                       data2 => (others => '0'));
+	signal reg_ID : t_ID := (instr => (others => '0'),
+	                         data1 => (others => '0'),
+	                         data2 => (others => '0'));
 																			 
-	signal reg_execute : t_Execute := (ra => "000",
-	                                   addr => (others => '0'),
-												  wr_instr => '0',
-												  out_instr => '0',
-												  alu_result => (others => '0'),
-												  alu_overflow => (others => '0'),
-												  z_flag => '0',
-												  n_flag => '0');
+	signal reg_EX : t_EX := (instr => (others => '0'),
+									 alu_result => (others => '0'),
+									 alu_overflow => (others => '0'),
+									 z_flag => '0',
+									 n_flag => '0');
 
-	signal reg_mem : t_Mem := (addr => "000",
-	                           wr_instr => '0',
+	signal reg_WR : t_WR := (instr => (others => '0'),
 	                           data => (others => '0'),
 										overflow => (others => '0'));
 										
+	-- Connections requiring logic between
 	signal rd_index1 : std_logic_vector(2 downto 0);
 	signal rd_index2 : std_logic_vector(2 downto 0);
 	signal rd_data1 : std_logic_vector(15 downto 0);
 	signal rd_data2 : std_logic_vector(15 downto 0);
-	signal wr_index : std_logic_vector(2 downto 0);
-	signal wr_data : std_logic_vector(15 downto 0);
 	signal wr_enable : std_logic;
+	signal wr_overflow : std_logic;
 	
-	signal alu_mode : std_logic_vector(2 downto 0);
-	signal in1 : std_logic_vector(15 downto 0);
-	signal in2 : std_logic_vector(15 downto 0);
 	signal alu_result : std_logic_vector(15 downto 0);
 	signal alu_overflow : std_logic_vector(15 downto 0);
 	signal z_flag : std_logic;
 	signal n_flag : std_logic;
-	
-	signal opcode : std_logic_vector(6 downto 0);
-	signal decoded_alu_mode : std_logic_vector(2 downto 0);
-	signal a_instr_sel : std_logic;
-	signal wr_instr : std_logic;
-	signal out_instr : std_logic;
-	
+		
 	signal PC : std_logic_vector(6 downto 0);
 	signal rom_data : std_logic_vector(15 downto 0);
-	
+
 begin
 
 	rom0 : ROM_VHDL PORT MAP (
@@ -199,142 +175,107 @@ begin
 		rd_index2 => rd_index2,
 		rd_data1 => rd_data1,
 		rd_data2 => rd_data2,
-		wr_index => wr_index,
-		wr_data => wr_data,
-		wr_enable => wr_enable
+		wr_index => reg_WR.instr(8 downto 6),
+		wr_data => reg_WR.data,
+		wr_enable => wr_enable,
+		wr_overflow_data => reg_WR.overflow,
+		wr_overflow => wr_overflow
 	);
 	
 	alu0: alu PORT MAP (
 		rst => rst,
 		clk => clk,
-		alu_mode => alu_mode,
-		in1 => in1,
-		in2 => in2,
+		alu_mode => reg_ID.instr(11 downto 9),
+		in1 => reg_ID.data1,
+		in2 => reg_ID.data2,
 		result => alu_result,
 		overflow => alu_overflow,
 		z_flag => z_flag,
 		n_flag => n_flag
 	);
 	
-	cu0: control_unit PORT MAP (
-		clk => clk,
-		rst => rst,
-		opcode => opcode,
-		alu_mode => decoded_alu_mode,
-		a_instr_sel => a_instr_sel,
-		wr_instr => wr_instr,
-		out_instr => out_instr
-	);
+-- COMBINATIONAL LOGIC
+	rd_index1 <= reg_IF.instr(8 downto 6) when a2_instr(reg_IF.instr(15 downto 9)) else reg_IF.instr(5 downto 3);
+	rd_index2 <= reg_IF.instr(2 downto 0);
 	
-	opcode <= reg_instructionFetch.opcode;
-	in1 <= reg_instructionDecode.data1;
-	in2 <= reg_instructionDecode.data2;
-	alu_mode <= reg_instructionDecode.alu_mode;
-	
-	rd_index1 <= reg_instructionFetch.data(8 downto 6) when (a_instr_sel='1') else reg_instructionFetch.data(5 downto 3);
-	rd_index2 <= reg_instructionFetch.data(2 downto 0);
+	wr_enable <= '1' when wr_instr(reg_WR.instr(15 downto 9)) else '0';
+	wr_overflow <= '1' when (wr_instr(reg_WR.instr(15 downto 9)) AND reg_WR.instr(11 downto 9)="011") else '0';
 	
 	process(clk, rst) is
 	begin
 		if (rst='1') then
-			reg_instructionFetch.opcode <= "0000000";
-			reg_instructionFetch.data <= (others => '0');
-			reg_instructionFetch.inport <= (others => '0');
+			reg_IF.instr <= (others => '0');
+			reg_IF.inport <= (others => '0');
 			
-			reg_instructionDecode.ra <= "000";
-			reg_instructionDecode.alu_mode <= "000";
-			reg_instructionDecode.wr_instr <= '0';
-			reg_instructionDecode.out_instr <= '0';
-			reg_instructionDecode.data1 <= (others => '0');
-			reg_instructionDecode.data2 <= (others => '0');
+			reg_ID.instr <= (others => '0');
+			reg_ID.data1 <= (others => '0');
+			reg_ID.data2 <= (others => '0');
 			
-			reg_execute.ra <= "000";
-			reg_execute.addr <= (others => '0');
-			reg_execute.wr_instr <= '0';
-			reg_execute.out_instr <= '0';
-			reg_execute.alu_result <= (others => '0');
-			reg_execute.alu_overflow <= (others => '0');
-			reg_execute.z_flag <= '0';
-			reg_execute.n_flag <= '0';
+			reg_EX.instr <= (others => '0');
+			reg_EX.alu_result <= (others => '0');
+			reg_EX.alu_overflow <= (others => '0');
+			reg_EX.z_flag <= '0';
+			reg_EX.n_flag <= '0';
 
-			reg_mem.addr <= "000";
-			reg_mem.wr_instr <= '0';
-			reg_mem.data <= (others => '0');
-			reg_mem.overflow <= (others => '0');
+			reg_WR.instr <= (others => '0');
+			reg_WR.data <= (others => '0');
+			reg_WR.overflow <= (others => '0');
 			
 			PC <= (others => '0');
 			outport <= (others => '0');
-		-- Stages in reverse order so stages cascade rather than updating at once
+		-- Stages in reverse order so stages cascade rather than data passing through
+		-- in one cycle
 		else -- (not rst)
-		
-		-- TODO: remove control unit, distribute control code, passthrough instruction
 		if rising_edge(clk) then
 			-- WRITEBACK
-			wr_index <= reg_mem.addr;
-			wr_data <= reg_mem.data;
-			
-			-- only writeback on ADD->SHIFT instructions or IN instruction
-			if (reg_mem.wr_instr='1') then
-				wr_enable <= '1';
-			else
-				wr_enable <= '0';
-			end if;
-			
-			-- TODO: add overflow writeback for mutliply instructions
-									
-			-- MEM
-			reg_mem.addr <= reg_execute.ra;
-			reg_mem.wr_instr <= reg_execute.wr_instr;
-			reg_mem.data <= reg_execute.alu_result;
-			reg_mem.overflow <= reg_execute.alu_overflow;
-			
-			if (reg_execute.out_instr='1') then
-				outport <= reg_execute.alu_result;
+			if (unsigned(reg_WR.instr(15 downto 9))=32) then
+				outport <= reg_WR.data;
 			else
 				outport <= (others => '0');
 			end if;
 			
-			-- EXECUTE
-			reg_execute.ra <= reg_instructionDecode.ra;
-			reg_execute.wr_instr <= reg_instructionDecode.wr_instr;
-			reg_execute.out_instr <= reg_instructionDecode.out_instr;
+			reg_WR.instr <= reg_EX.instr;
+			reg_WR.data <= reg_EX.alu_result;
+			reg_WR.overflow <= reg_EX.alu_overflow;
 			
-			reg_execute.alu_result <= alu_result;
-			reg_execute.alu_overflow <= alu_overflow;
-			reg_execute.z_flag <= z_flag;
-			reg_execute.n_flag <= n_flag;
+			-- EX/MEM
+			reg_EX.instr <= reg_ID.instr;
+
+			if (unsigned(reg_ID.instr(15 downto 9))=32) then
+				reg_EX.alu_result <= reg_ID.data1;
+			else
+				reg_EX.alu_result <= alu_result;
+			end if;
+			reg_EX.alu_overflow <= alu_overflow;
+			reg_EX.z_flag <= z_flag;
+			reg_EX.n_flag <= n_flag;
 			
 			-- DECODE
-			reg_instructionDecode.ra <= reg_instructionFetch.data(8 downto 6);
-			reg_instructionDecode.wr_instr <= wr_instr;
-			reg_instructionDecode.out_instr <= out_instr;
-			
-			reg_instructionDecode.alu_mode <= decoded_alu_mode;
+			reg_ID.instr <= reg_IF.instr;
 			
 			-- Determine rd_index1 and set data2 (potentially from rd_data2)
-			if (unsigned(reg_instructionFetch.opcode)=33) then
+			if (unsigned(reg_IF.instr(15 downto 9))=33) then
 				-- IN operation (IN port)
-				reg_instructionDecode.data1 <= reg_instructionFetch.inport;
-				reg_instructionDecode.data2 <= x"0000";
-			elsif (a_instr_sel='1') then
+				reg_ID.data1 <= reg_IF.inport;
+				reg_ID.data2 <= x"0000";
+			elsif (a2_instr(reg_IF.instr(15 downto 9))) then
 				-- ra and cl (immediate)
-				reg_instructionDecode.data1 <= rd_data1;
-				if (out_instr='0') then -- take cl
-					reg_instructionDecode.data2 <= std_logic_vector(resize(signed(reg_instructionFetch.data(3 downto 0)),16));
+				reg_ID.data1 <= rd_data1;
+				if (unsigned(reg_ID.instr(15 downto 9))/=32) then -- take cl
+					reg_ID.data2 <= std_logic_vector(resize(signed(reg_IF.instr(3 downto 0)),16));
 				else -- ignore cl (short to 0)
-					reg_instructionDecode.data2 <= x"0000";
+					reg_ID.data2 <= x"0000";
 				end if;
 			else
 				-- rb and rd_data2 (reg)
-				reg_instructionDecode.data1 <= rd_data1;
-				reg_instructionDecode.data2 <= rd_data2;
+				reg_ID.data1 <= rd_data1;
+				reg_ID.data2 <= rd_data2;
 			end if;
 		
 			-- FETCH
-			reg_instructionFetch.opcode <= rom_data(15 downto 9);
-			reg_instructionFetch.data <= rom_data(8 downto 0);
-			reg_instructionFetch.inport <= inport;
-			PC <= std_logic_vector(unsigned(PC) + instr_size);
+			reg_IF.instr <= rom_data;
+			reg_IF.inport <= inport;
+			PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
 			
 		end if; end if;
 	end process;
