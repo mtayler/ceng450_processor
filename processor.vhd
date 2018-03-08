@@ -125,18 +125,21 @@ architecture Behavioral of processor is
 	type t_IF is record
 		instr : std_logic_vector(15 downto 0);
 		inport : std_logic_vector(15 downto 0);
+		PC : std_logic_vector(6 downto 0);
 	end record t_IF;
 	
 	type t_ID is record
 		instr : std_logic_vector(15 downto 0);
 		data1 : std_logic_vector(15 downto 0);
 		data2 : std_logic_vector(15 downto 0);
+		PC : std_logic_vector(6 downto 0);
 	end record t_ID;
 	
 	type t_EX is record
 		instr : std_logic_vector(15 downto 0);
 		alu_result : std_logic_vector(15 downto 0);
 		alu_overflow : std_logic_vector(15 downto 0);
+		PC : std_logic_vector(6 downto 0);
 		z_flag : std_logic;
 		n_flag : std_logic;
 	end record t_EX;
@@ -145,24 +148,29 @@ architecture Behavioral of processor is
 		instr : std_logic_vector(15 downto 0);
 		data : std_logic_vector(15 downto 0);
 		overflow : std_logic_vector(15 downto 0);
+		PC : std_logic_vector(6 downto 0);
 	end record t_WR;
 	
 	signal reg_IF : t_IF := (instr => (others => '0'),
-	                         inport => (others => '0'));
+	                         inport => (others => '0'),
+									 PC => (others => '0'));
 																		  
 	signal reg_ID : t_ID := (instr => (others => '0'),
 	                         data1 => (others => '0'),
-	                         data2 => (others => '0'));
+	                         data2 => (others => '0'),
+									 PC => (others => '0'));
 																			 
 	signal reg_EX : t_EX := (instr => (others => '0'),
 									 alu_result => (others => '0'),
 									 alu_overflow => (others => '0'),
+									 PC => (others => '0'),
 									 z_flag => '0',
 									 n_flag => '0');
 
 	signal reg_WR : t_WR := (instr => (others => '0'),
 	                         data => (others => '0'),
-	                         overflow => (others => '0'));
+	                         overflow => (others => '0'),
+									 PC => (others => '0'));
 										
 	-- Connections requiring logic between
 	signal rd_index1 : std_logic_vector(2 downto 0);
@@ -259,20 +267,24 @@ begin
 		if (rst='1') then
 			reg_IF.instr <= (others => '0');
 			reg_IF.inport <= (others => '0');
+			reg_IF.PC <= (others => '0');
 			
 			reg_ID.instr <= (others => '0');
 			reg_ID.data1 <= (others => '0');
 			reg_ID.data2 <= (others => '0');
+			reg_ID.PC <= (others => '0');
 			
 			reg_EX.instr <= (others => '0');
 			reg_EX.alu_result <= (others => '0');
 			reg_EX.alu_overflow <= (others => '0');
+			reg_EX.PC <= (others => '0');
 			reg_EX.z_flag <= '0';
 			reg_EX.n_flag <= '0';
 
 			reg_WR.instr <= (others => '0');
 			reg_WR.data <= (others => '0');
 			reg_WR.overflow <= (others => '0');
+			reg_WR.PC <= (others => '0');
 			
 			PC <= (others => '0');
 			outport <= (others => '0');
@@ -290,9 +302,11 @@ begin
 			reg_WR.instr <= reg_EX.instr;
 			reg_WR.data <= reg_EX.alu_result;
 			reg_WR.overflow <= reg_EX.alu_overflow;
+			reg_WR.PC <= reg_EX.PC;
 			
 			-- EX/MEM
 			reg_EX.instr <= reg_ID.instr;
+			reg_EX.PC <= reg_ID.PC;
 
 			if (unsigned(reg_ID.instr(15 downto 9))=32) then
 				reg_EX.alu_result <= reg_ID.data1;
@@ -305,6 +319,7 @@ begin
 			
 			-- DECODE
 			reg_ID.instr <= reg_IF.instr;
+			reg_ID.PC <= reg_IF.instr;
 			
 			-- Determine rd_index1 and set data2 (potentially from rd_data2)
 			if (opcode(reg_IF.instr)=33) then -- IN instruction (ra and 0)
@@ -337,6 +352,7 @@ begin
 			-- FETCH
 			reg_IF.instr <= rom_data;
 			reg_IF.inport <= inport;
+			reg_IF.PC <= PC;
 			PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
 			
 		end if; end if;
