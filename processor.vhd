@@ -43,16 +43,36 @@ end processor;
 architecture Behavioral of processor is
 
 	constant instr_mem_size : integer := 1;
-	
-	function wr_instr(signal opcode : std_logic_vector(6 downto 0)) return boolean is
+		
+	function opcode(signal instr : std_logic_vector(15 downto 0)) return unsigned is
 	begin
-		return ((unsigned(opcode)>=1 AND unsigned(opcode)<=7) OR unsigned(opcode)=33);
+		return unsigned(instr(15 downto 9));
+	end opcode;
+	
+	function wr_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
+	begin
+		return ((opcode(instr)>=1 AND opcode(instr)<=7) OR opcode(instr)=33);
 	end wr_instr;
 	
-	function a2_instr(signal opcode : std_logic_vector(6 downto 0)) return boolean is
+	function b1_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
 	begin
-		return (unsigned(opcode)=5 OR unsigned(opcode)=6 OR unsigned(opcode)=32);
-	end a2_instr;
+		return (opcode(instr)=64 OR opcode(instr)=65 OR opcode(instr)=66);
+	end b1_instr;
+	
+	function b2_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
+	begin
+		return (opcode(instr)=67 OR opcode(instr)=68 OR opcode(instr)=69 OR opcode(instr)=70);
+	end b2_instr;
+	
+	function a1_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
+	begin
+		return (opcode(instr)>=1 AND opcode(instr)<=4);
+	end a1_instr;
+	
+	function ra_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
+	begin
+		return (opcode(instr)=5 OR opcode(instr)=6 OR opcode(instr)=32 OR b2_instr(instr));
+	end ra_instr;
 	
 	Component register_file
 	PORT(
@@ -141,8 +161,8 @@ architecture Behavioral of processor is
 									 n_flag => '0');
 
 	signal reg_WR : t_WR := (instr => (others => '0'),
-	                           data => (others => '0'),
-										overflow => (others => '0'));
+	                         data => (others => '0'),
+	                         overflow => (others => '0'));
 										
 	-- Connections requiring logic between
 	signal rd_index1 : std_logic_vector(2 downto 0);
@@ -151,6 +171,10 @@ architecture Behavioral of processor is
 	signal rd_data2 : std_logic_vector(15 downto 0);
 	signal wr_enable : std_logic;
 	signal wr_overflow : std_logic;
+		
+	signal in1 : std_logic_vector(15 downto 0);
+	signal in2 : std_logic_vector(15 downto 0);
+	signal alu_mode : std_logic_vector(2 downto 0);
 	
 	signal alu_result : std_logic_vector(15 downto 0);
 	signal alu_overflow : std_logic_vector(15 downto 0);
@@ -185,9 +209,9 @@ begin
 	alu0: alu PORT MAP (
 		rst => rst,
 		clk => clk,
-		alu_mode => reg_ID.instr(11 downto 9),
-		in1 => reg_ID.data1,
-		in2 => reg_ID.data2,
+		alu_mode => alu_mode,
+		in1 => in1,
+		in2 => in2,
 		result => alu_result,
 		overflow => alu_overflow,
 		z_flag => z_flag,
@@ -195,12 +219,41 @@ begin
 	);
 	
 -- COMBINATIONAL LOGIC
-	rd_index1 <= reg_IF.instr(8 downto 6) when a2_instr(reg_IF.instr(15 downto 9)) else reg_IF.instr(5 downto 3);
+	                                                                                        -- add instruction on RETURN or OUT
+	alu_mode <= reg_ID.instr(11 downto 9) when (opcode(reg_ID.instr) <= 7) else "001" when (opcode(reg_ID.instr)=71 OR opcode(reg_ID.instr)=33) else "000";
+
+	rd_index1 <= reg_IF.instr(8 downto 6) when ra_instr(reg_IF.instr) else "111" when (opcode(reg_IF.instr)=71) else reg_IF.instr(5 downto 3);
 	rd_index2 <= reg_IF.instr(2 downto 0);
 	
-	wr_enable <= '1' when wr_instr(reg_WR.instr(15 downto 9)) else '0';
-	wr_overflow <= '1' when (wr_instr(reg_WR.instr(15 downto 9)) AND reg_WR.instr(11 downto 9)="011") else '0';
+	wr_enable <= '1' when wr_instr(reg_WR.instr) else '0';
+	wr_overflow <= '1' when (wr_instr(reg_WR.instr) AND reg_WR.instr(11 downto 9)="011") else '0';
 	
+	-- result forwarding {
+	-- (may need to add load instruction support, branch instructions should be covered by branch
+	in1 <= reg_EX.alu_overflow when ( -- check for overflow forward
+		opcode(reg_EX.instr)=3 AND ( -- when last instruction was multiply
+			(a1_instr(reg_ID.instr) AND reg_ID.instr(5 downto 3)="111") -- A1 instruction and rb=7
+			OR (ra_instr(reg_ID.instr) AND reg_ID.instr(8 downto 6)="111") -- A2/OUT instruction and ra=7
+		)
+	) else reg_EX.alu_result when ( -- check for result forward
+		wr_instr(reg_EX.instr) AND ( -- last instruction is writing back
+			(a1_instr(reg_ID.instr) AND reg_ID.instr(5 downto 3)=reg_EX.instr(8 downto 6)) -- A1, instruction and rb=writeback register
+			OR (ra_instr(reg_ID.instr) AND reg_ID.instr(8 downto 6)=reg_EX.instr(8 downto 6)) -- A2/OUT ra=writeback register
+		)
+	) else reg_ID.data1;
+	
+	in2 <= reg_EX.alu_overflow when ( -- check for overflow forward
+		opcode(reg_EX.instr)=3 AND ( -- when last instruction was multiply
+			(a1_instr(reg_ID.instr) AND reg_ID.instr(2 downto 0)="111") -- A1 instruction and rc=7
+		)
+	) else reg_EX.alu_result when ( -- check for result forward
+		wr_instr(reg_EX.instr) AND ( -- last instruction is writing back
+			(a1_instr(reg_ID.instr) AND reg_ID.instr(2 downto 0)=reg_EX.instr(8 downto 6)) -- A1, instruction and rc=writeback register
+		)
+	) else reg_ID.data2;
+	
+	-- } end result forwarding
+				
 	process(clk, rst) is
 	begin
 		if (rst='1') then
@@ -254,18 +307,27 @@ begin
 			reg_ID.instr <= reg_IF.instr;
 			
 			-- Determine rd_index1 and set data2 (potentially from rd_data2)
-			if (unsigned(reg_IF.instr(15 downto 9))=33) then
+			if (opcode(reg_IF.instr)=33) then -- IN instruction (ra and 0)
 				-- IN operation (IN port)
 				reg_ID.data1 <= reg_IF.inport;
 				reg_ID.data2 <= x"0000";
-			elsif (a2_instr(reg_IF.instr(15 downto 9))) then
+			elsif (opcode(reg_IF.instr)=71) then -- RETURN instruction, want r7 (rd_data1) and 0
+				reg_ID.data1 <= rd_data1;
+				reg_ID.data2 <= x"0000";
+			elsif (ra_instr(reg_IF.instr)) then -- A2 instruction (A3 already checked)
 				-- ra and cl (immediate)
 				reg_ID.data1 <= rd_data1;
-				if (unsigned(reg_ID.instr(15 downto 9))/=32) then -- take cl
-					reg_ID.data2 <= std_logic_vector(resize(signed(reg_IF.instr(3 downto 0)),16));
-				else -- ignore cl (short to 0)
+				if (opcode(reg_ID.instr)=32) then -- OUT, null cl
 					reg_ID.data2 <= x"0000";
+				else -- ignore cl (short to 0)
+					reg_ID.data2 <= std_logic_vector(resize(signed(reg_IF.instr(3 downto 0)),16));
 				end if;
+			elsif (b1_instr(reg_IF.instr)) then -- B1 branch (PC and disp.l)
+				reg_ID.data1 <= std_logic_vector(resize(unsigned(PC),16));
+				reg_ID.data1 <= std_logic_vector(resize(signed(reg_IF.instr(8 downto 0)),16)); -- disp.l
+			elsif (b2_instr(reg_IF.instr)) then -- B2 branch (ra and disp.s)
+				reg_ID.data1 <= rd_data1;
+				reg_ID.data1 <= std_logic_vector(resize(signed(reg_IF.instr(5 downto 0)),16)); -- disp.s
 			else
 				-- rb and rd_data2 (reg)
 				reg_ID.data1 <= rd_data1;
