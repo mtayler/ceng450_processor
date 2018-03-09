@@ -126,6 +126,7 @@ architecture Behavioral of processor is
 		instr : std_logic_vector(15 downto 0);
 		inport : std_logic_vector(15 downto 0);
 		PC : std_logic_vector(6 downto 0);
+		write_ignore : std_logic;
 	end record t_IF;
 	
 	type t_ID is record
@@ -133,15 +134,17 @@ architecture Behavioral of processor is
 		data1 : std_logic_vector(15 downto 0);
 		data2 : std_logic_vector(15 downto 0);
 		PC : std_logic_vector(6 downto 0);
+		write_ignore : std_logic;
 	end record t_ID;
 	
 	type t_EX is record
 		instr : std_logic_vector(15 downto 0);
-		alu_result : std_logic_vector(15 downto 0);
-		alu_overflow : std_logic_vector(15 downto 0);
+		result : std_logic_vector(15 downto 0);
+		overflow : std_logic_vector(15 downto 0);
 		PC : std_logic_vector(6 downto 0);
 		z_flag : std_logic;
 		n_flag : std_logic;
+		write_ignore : std_logic;
 	end record t_EX;
 	
 	type t_WR is record
@@ -149,34 +152,34 @@ architecture Behavioral of processor is
 		data : std_logic_vector(15 downto 0);
 		overflow : std_logic_vector(15 downto 0);
 		PC : std_logic_vector(6 downto 0);
+		write_ignore : std_logic;
 	end record t_WR;
 	
 	signal reg_IF : t_IF := (instr => (others => '0'),
 	                         inport => (others => '0'),
-									 PC => (others => '0'));
+									 PC => (others => '0'),
+									 write_ignore => '0');
 																		  
 	signal reg_ID : t_ID := (instr => (others => '0'),
 	                         data1 => (others => '0'),
 	                         data2 => (others => '0'),
-									 PC => (others => '0'));
+									 PC => (others => '0'),
+									 write_ignore => '0');
 																			 
 	signal reg_EX : t_EX := (instr => (others => '0'),
-									 alu_result => (others => '0'),
-									 alu_overflow => (others => '0'),
+									 result => (others => '0'),
+									 overflow => (others => '0'),
 									 PC => (others => '0'),
 									 z_flag => '0',
-									 n_flag => '0');
-
-	signal reg_WR : t_WR := (instr => (others => '0'),
-	                         data => (others => '0'),
-	                         overflow => (others => '0'),
-									 PC => (others => '0'));
+									 n_flag => '0',
+									 write_ignore => '0');
 										
 	-- Connections requiring logic between
 	signal rd_index1 : std_logic_vector(2 downto 0);
 	signal rd_index2 : std_logic_vector(2 downto 0);
 	signal rd_data1 : std_logic_vector(15 downto 0);
 	signal rd_data2 : std_logic_vector(15 downto 0);
+	signal wr_index : std_logic_vector(2 downto 0);
 	signal wr_enable : std_logic;
 	signal wr_overflow : std_logic;
 		
@@ -184,12 +187,15 @@ architecture Behavioral of processor is
 	signal in2 : std_logic_vector(15 downto 0);
 	signal alu_mode : std_logic_vector(2 downto 0);
 	
-	signal alu_result : std_logic_vector(15 downto 0);
-	signal alu_overflow : std_logic_vector(15 downto 0);
+	signal result : std_logic_vector(15 downto 0);
+	signal overflow : std_logic_vector(15 downto 0);
 	signal z_flag : std_logic;
 	signal n_flag : std_logic;
+	
+	signal branch_trigger : std_logic;
 		
 	signal PC : std_logic_vector(6 downto 0);
+	signal PC_next : std_logic_vector(6 downto 0);
 	signal rom_data : std_logic_vector(15 downto 0);
 
 begin
@@ -207,10 +213,10 @@ begin
 		rd_index2 => rd_index2,
 		rd_data1 => rd_data1,
 		rd_data2 => rd_data2,
-		wr_index => reg_WR.instr(8 downto 6),
-		wr_data => reg_WR.data,
+		wr_index => wr_index,
+		wr_data => reg_EX.result,
 		wr_enable => wr_enable,
-		wr_overflow_data => reg_WR.overflow,
+		wr_overflow_data => reg_EX.overflow,
 		wr_overflow => wr_overflow
 	);
 	
@@ -220,106 +226,104 @@ begin
 		alu_mode => alu_mode,
 		in1 => in1,
 		in2 => in2,
-		result => alu_result,
-		overflow => alu_overflow,
+		result => result,
+		overflow => overflow,
 		z_flag => z_flag,
 		n_flag => n_flag
 	);
 	
 -- COMBINATIONAL LOGIC
-	                                                                                        -- add instruction on RETURN or OUT
-	alu_mode <= reg_ID.instr(11 downto 9) when (opcode(reg_ID.instr) <= 7) else "001" when (opcode(reg_ID.instr)=71 OR opcode(reg_ID.instr)=33) else "000";
+	                                                                                        -- add instruction on BRANCH or OUT
+	alu_mode <= reg_ID.instr(11 downto 9) when (opcode(reg_ID.instr) <= 7) else "001" when ((opcode(reg_ID.instr)>=64 AND opcode(reg_ID.instr)<=71) OR opcode(reg_ID.instr)=33) else "000";
 
 	rd_index1 <= reg_IF.instr(8 downto 6) when ra_instr(reg_IF.instr) else "111" when (opcode(reg_IF.instr)=71) else reg_IF.instr(5 downto 3);
 	rd_index2 <= reg_IF.instr(2 downto 0);
 	
-	wr_enable <= '1' when wr_instr(reg_WR.instr) else '0';
-	wr_overflow <= '1' when (wr_instr(reg_WR.instr) AND reg_WR.instr(11 downto 9)="011") else '0';
+	wr_index <= "111" when (opcode(reg_EX.instr)=70) else reg_EX.instr(8 downto 6); -- r7 when BR.SUB otherwise ra
+	
+	wr_enable <= '1' when (wr_instr(reg_EX.instr) AND reg_EX.write_ignore='0')	else '0';
+	wr_overflow <= '1' when (wr_instr(reg_EX.instr) AND reg_EX.instr(11 downto 9)="011" AND reg_EX.write_ignore='0') else '0';
+	
+	-- we're branching, so PC gets set to branch address and writeback disabled for current instruction
+	PC_next <= reg_EX.result(6 downto 0) when (branch_trigger='1') else std_logic_vector(unsigned(PC) + instr_mem_size);
+	
+	branch_trigger <= '1' when reg_EX.write_ignore='0' AND ( -- not currently branching
+		(opcode(reg_EX.instr)=64 OR opcode(reg_EX.instr)=70 OR opcode(reg_EX.instr)=71) -- BRR, BR.SUB or RETURN instruction (always branch)
+		OR ((opcode(reg_EX.instr)=65 OR opcode(reg_EX.instr)=68) AND reg_EX.n_flag='1') -- if NEG branch
+		OR ((opcode(reg_EX.instr)=66 OR opcode(reg_EX.instr)=69) AND reg_EX.z_flag='1') -- if ZERO branch
+	) else '0';
 	
 	-- result forwarding {
 	-- (may need to add load instruction support, branch instructions should be covered by branch
-	in1 <= reg_EX.alu_overflow when ( -- check for overflow forward
+	in1 <= reg_EX.overflow when ( -- check for overflow forward
 		opcode(reg_EX.instr)=3 AND ( -- when last instruction was multiply
 			(a1_instr(reg_ID.instr) AND reg_ID.instr(5 downto 3)="111") -- A1 instruction and rb=7
 			OR (ra_instr(reg_ID.instr) AND reg_ID.instr(8 downto 6)="111") -- A2/OUT instruction and ra=7
 		)
-	) else reg_EX.alu_result when ( -- check for result forward
+	) else reg_EX.result when ( -- check for result forward
 		wr_instr(reg_EX.instr) AND ( -- last instruction is writing back
 			(a1_instr(reg_ID.instr) AND reg_ID.instr(5 downto 3)=reg_EX.instr(8 downto 6)) -- A1, instruction and rb=writeback register
 			OR (ra_instr(reg_ID.instr) AND reg_ID.instr(8 downto 6)=reg_EX.instr(8 downto 6)) -- A2/OUT ra=writeback register
 		)
 	) else reg_ID.data1;
 	
-	in2 <= reg_EX.alu_overflow when ( -- check for overflow forward
+	in2 <= reg_EX.overflow when ( -- check for overflow forward
 		opcode(reg_EX.instr)=3 AND ( -- when last instruction was multiply
 			(a1_instr(reg_ID.instr) AND reg_ID.instr(2 downto 0)="111") -- A1 instruction and rc=7
 		)
-	) else reg_EX.alu_result when ( -- check for result forward
+	) else reg_EX.result when ( -- check for result forward
 		wr_instr(reg_EX.instr) AND ( -- last instruction is writing back
 			(a1_instr(reg_ID.instr) AND reg_ID.instr(2 downto 0)=reg_EX.instr(8 downto 6)) -- A1, instruction and rc=writeback register
 		)
 	) else reg_ID.data2;
 	
 	-- } end result forwarding
-				
-	process(clk, rst) is
+	
+	PCUpdate: process(clk, rst) is
+	begin
+		if (rst='1') then
+			PC <= (others => '0');
+		elsif rising_edge(clk) then -- (not rst)
+--			if (branch_trigger='1') then
+--				PC <= reg_EX.result(6 downto 0);
+--			else
+--				PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
+--			end if;
+			PC <= PC_next;
+		end if;
+	end process;
+	
+	InstructionFetch: process(clk, rst) is
 	begin
 		if (rst='1') then
 			reg_IF.instr <= (others => '0');
 			reg_IF.inport <= (others => '0');
 			reg_IF.PC <= (others => '0');
+		elsif rising_edge(clk) then -- (not rst)
+			reg_IF.instr <= rom_data;
+			reg_IF.inport <= inport;
+			reg_IF.PC <= PC;
 			
+			-- set current instruction write ignore (if branching true, false if subsequent)
+			if (branch_trigger='1') then
+				reg_IF.write_ignore <= '1';
+			else
+				reg_IF.write_ignore <= '0';
+			end if;
+		end if;
+	end process;
+	
+	InstructionDecode: process(clk, rst) is
+	begin
+		if (rst='1') then
 			reg_ID.instr <= (others => '0');
 			reg_ID.data1 <= (others => '0');
 			reg_ID.data2 <= (others => '0');
 			reg_ID.PC <= (others => '0');
-			
-			reg_EX.instr <= (others => '0');
-			reg_EX.alu_result <= (others => '0');
-			reg_EX.alu_overflow <= (others => '0');
-			reg_EX.PC <= (others => '0');
-			reg_EX.z_flag <= '0';
-			reg_EX.n_flag <= '0';
-
-			reg_WR.instr <= (others => '0');
-			reg_WR.data <= (others => '0');
-			reg_WR.overflow <= (others => '0');
-			reg_WR.PC <= (others => '0');
-			
-			PC <= (others => '0');
-			outport <= (others => '0');
-		-- Stages in reverse order so stages cascade rather than data passing through
-		-- in one cycle
-		else -- (not rst)
-		if rising_edge(clk) then
-			-- WRITEBACK
-			if (unsigned(reg_WR.instr(15 downto 9))=32) then
-				outport <= reg_WR.data;
-			else
-				outport <= (others => '0');
-			end if;
-			
-			reg_WR.instr <= reg_EX.instr;
-			reg_WR.data <= reg_EX.alu_result;
-			reg_WR.overflow <= reg_EX.alu_overflow;
-			reg_WR.PC <= reg_EX.PC;
-			
-			-- EX/MEM
-			reg_EX.instr <= reg_ID.instr;
-			reg_EX.PC <= reg_ID.PC;
-
-			if (unsigned(reg_ID.instr(15 downto 9))=32) then
-				reg_EX.alu_result <= reg_ID.data1;
-			else
-				reg_EX.alu_result <= alu_result;
-			end if;
-			reg_EX.alu_overflow <= alu_overflow;
-			reg_EX.z_flag <= z_flag;
-			reg_EX.n_flag <= n_flag;
-			
-			-- DECODE
+		elsif rising_edge(clk) then -- (not rst)		
 			reg_ID.instr <= reg_IF.instr;
-			reg_ID.PC <= reg_IF.instr;
+			reg_ID.PC <= reg_IF.PC;
+			reg_ID.write_ignore <= reg_IF.write_ignore;
 			
 			-- Determine rd_index1 and set data2 (potentially from rd_data2)
 			if (opcode(reg_IF.instr)=33) then -- IN instruction (ra and 0)
@@ -348,14 +352,48 @@ begin
 				reg_ID.data1 <= rd_data1;
 				reg_ID.data2 <= rd_data2;
 			end if;
-		
-			-- FETCH
-			reg_IF.instr <= rom_data;
-			reg_IF.inport <= inport;
-			reg_IF.PC <= PC;
-			PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
 			
-		end if; end if;
+			-- Disable writing back for this instruction if branching
+			if (branch_trigger='1') then
+				reg_ID.write_ignore <= '1';
+			end if;
+		end if;
+	end process;
+				
+	Execution: process(clk, rst) is
+	begin
+		if (rst='1') then
+			reg_EX.instr <= (others => '0');
+			reg_EX.result <= (others => '0');
+			reg_EX.overflow <= (others => '0');
+			reg_EX.PC <= (others => '0');
+			reg_EX.z_flag <= '0';
+			reg_EX.n_flag <= '0';
+		elsif rising_edge(clk) then -- (not rst)
+			if (unsigned(reg_EX.instr(15 downto 9))=32) then
+				outport <= reg_EX.result;
+			else
+				outport <= (others => '0');
+			end if;
+			
+			reg_EX.instr <= reg_ID.instr;
+			reg_EX.PC <= reg_ID.PC;
+			reg_EX.write_ignore <= reg_ID.write_ignore;
+
+			if (unsigned(reg_ID.instr(15 downto 9))=32) then
+				reg_EX.result <= reg_ID.data1;
+			else
+				reg_EX.result <= result;
+			end if;
+			reg_EX.overflow <= overflow;
+			reg_EX.z_flag <= z_flag;
+			reg_EX.n_flag <= n_flag;
+			
+			-- Disable writing back for this instruction if branching
+			if (branch_trigger='1') then
+				reg_EX.write_ignore <= '1';
+			end if;
+		end if;
 	end process;
 
 end Behavioral;

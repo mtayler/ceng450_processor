@@ -93,7 +93,14 @@ BEGIN
 		rst <= '0';
 
       -- insert stimulus here
-		inport <= x"0212";
+		wait until rising_edge(clk); inport <= x"0002";
+		wait until rising_edge(clk); inport <= x"0003";
+		wait until rising_edge(clk); inport <= x"0001";
+		wait until rising_edge(clk); inport <= x"0005";
+		wait until rising_edge(clk); inport <= x"0000";
+		wait until rising_edge(clk); inport <= x"0001";
+		wait until rising_edge(clk); inport <= x"0007";
+		wait until rising_edge(clk); inport <= x"0000";
 
       wait;
    end process;
