@@ -233,20 +233,21 @@ begin
 	);
 	
 -- COMBINATIONAL LOGIC
-	                                                                                        -- add instruction on BRANCH or OUT
+	-- bottom 3 bits of A format instruction, add instruction on BRANCH or OUT
 	alu_mode <= reg_ID.instr(11 downto 9) when (opcode(reg_ID.instr) <= 7) else "001" when ((opcode(reg_ID.instr)>=64 AND opcode(reg_ID.instr)<=71) OR opcode(reg_ID.instr)=33) else "000";
 
+	-- set read index to r7 in special cases, ra normally
 	rd_index1 <= reg_IF.instr(8 downto 6) when ra_instr(reg_IF.instr) else "111" when (opcode(reg_IF.instr)=71) else reg_IF.instr(5 downto 3);
 	rd_index2 <= reg_IF.instr(2 downto 0);
 	
-	wr_index <= "111" when (opcode(reg_EX.instr)=70) else reg_EX.instr(8 downto 6); -- r7 when BR.SUB otherwise ra
+	-- r7 when BR.SUB otherwise ra
+	wr_index <= "111" when (opcode(reg_EX.instr)=70) else reg_EX.instr(8 downto 6);
 	
+	-- check if we have something to write back
 	wr_enable <= '1' when (wr_instr(reg_EX.instr) AND reg_EX.write_ignore='0')	else '0';
 	wr_overflow <= '1' when (wr_instr(reg_EX.instr) AND reg_EX.instr(11 downto 9)="011" AND reg_EX.write_ignore='0') else '0';
 	
-	-- we're branching, so PC gets set to branch address and writeback disabled for current instruction
-	PC_next <= reg_EX.result(6 downto 0) when (branch_trigger='1') else std_logic_vector(unsigned(PC) + instr_mem_size);
-	
+	-- check opcode and conditions for branch
 	branch_trigger <= '1' when reg_EX.write_ignore='0' AND ( -- not currently branching
 		(opcode(reg_EX.instr)=64 OR opcode(reg_EX.instr)=70 OR opcode(reg_EX.instr)=71) -- BRR, BR.SUB or RETURN instruction (always branch)
 		OR ((opcode(reg_EX.instr)=65 OR opcode(reg_EX.instr)=68) AND reg_EX.n_flag='1') -- if NEG branch
@@ -278,37 +279,30 @@ begin
 	) else reg_ID.data2;
 	
 	-- } end result forwarding
-	
-	PCUpdate: process(clk, rst) is
-	begin
-		if (rst='1') then
-			PC <= (others => '0');
-		elsif rising_edge(clk) then -- (not rst)
---			if (branch_trigger='1') then
---				PC <= reg_EX.result(6 downto 0);
---			else
---				PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
---			end if;
-			PC <= PC_next;
-		end if;
-	end process;
-	
 	InstructionFetch: process(clk, rst) is
 	begin
 		if (rst='1') then
 			reg_IF.instr <= (others => '0');
 			reg_IF.inport <= (others => '0');
 			reg_IF.PC <= (others => '0');
+			PC <= (others => '0');
 		elsif rising_edge(clk) then -- (not rst)
 			reg_IF.instr <= rom_data;
 			reg_IF.inport <= inport;
 			reg_IF.PC <= PC;
 			
-			-- set current instruction write ignore (if branching true, false if subsequent)
 			if (branch_trigger='1') then
+				-- branching, writeback disabled for instructions in pipeline
 				reg_IF.write_ignore <= '1';
 			else
 				reg_IF.write_ignore <= '0';
+			end if;
+			
+			if (branch_trigger='1') then
+				-- we're branching, so PC gets set to branch address
+				PC <= reg_EX.result(6 downto 0);
+			else
+				PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
 			end if;
 		end if;
 	end process;

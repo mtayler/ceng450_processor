@@ -1,4 +1,4 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -o "/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe" -prj "/home/mtayler/ceng450/processor/PROC_16TB_beh.prj" "work.PROC_16TB" 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe -prj /home/mtayler/ceng450/processor/PROC_16TB_beh.prj PROC_16TB 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -10,8 +10,8 @@ Parsing VHDL file "/home/mtayler/ceng450/processor/processor.vhd" into library w
 Parsing VHDL file "/home/mtayler/ceng450/processor/PROC_16TB.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 100480 KB
-Fuse CPU Usage: 1030 ms
+Fuse Memory Usage: 100472 KB
+Fuse CPU Usage: 1000 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package attributes
@@ -25,8 +25,9 @@ Compiling architecture behavioral of entity alu [alu_default]
 Compiling architecture behavioral of entity processor [processor_default]
 Compiling architecture behavior of entity proc_16tb
 Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 16 VHDL Units
 Built simulation executable /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe
-Fuse Memory Usage: 680852 KB
-Fuse CPU Usage: 1170 ms
-GCC CPU Usage: 290 ms
+Fuse Memory Usage: 680948 KB
+Fuse CPU Usage: 1120 ms
+GCC CPU Usage: 480 ms

@@ -97,7 +97,7 @@ BEGIN
 		wait until rising_edge(clk); inport <= x"0003";
 		wait until rising_edge(clk); inport <= x"0001";
 		wait until rising_edge(clk); inport <= x"0005";
-		wait until rising_edge(clk); inport <= x"0000";
+		wait until rising_edge(clk); inport <= x"0009";
 		wait until rising_edge(clk); inport <= x"0001";
 		wait until rising_edge(clk); inport <= x"0007";
 		wait until rising_edge(clk); inport <= x"0000";
