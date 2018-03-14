@@ -90,7 +90,7 @@ BEGIN
 		rst <= '1';
       wait for 100 ns;
 
-		rst <= '0';
+		wait until falling_edge(clk); rst <= '0';
 
       -- insert stimulus here
 		wait until rising_edge(clk); inport <= x"0002";
