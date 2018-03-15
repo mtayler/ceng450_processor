@@ -90,16 +90,14 @@ BEGIN
 		rst <= '1';
       wait for 100 ns;
 
-		wait until falling_edge(clk); rst <= '0';
-
-      -- insert stimulus here
-		wait until rising_edge(clk); inport <= x"0002";
+      -- Load correct values indicated by TB
+		wait until rising_edge(clk); rst <= '0'; inport <= x"0002";
 		wait until rising_edge(clk); inport <= x"0003";
 		wait until rising_edge(clk); inport <= x"0001";
 		wait until rising_edge(clk); inport <= x"0005";
-		wait until rising_edge(clk); inport <= x"0009";
+		wait until rising_edge(clk); inport <= x"0000";
 		wait until rising_edge(clk); inport <= x"0001";
-		wait until rising_edge(clk); inport <= x"0007";
+		wait until rising_edge(clk); inport <= x"0005";
 		wait until rising_edge(clk); inport <= x"0000";
 
       wait;

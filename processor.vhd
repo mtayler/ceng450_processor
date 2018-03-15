@@ -51,7 +51,7 @@ architecture Behavioral of processor is
 	
 	function wr_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
 	begin
-		return ((opcode(instr)>=1 AND opcode(instr)<=7) OR opcode(instr)=33);
+		return ((opcode(instr)>=1 AND opcode(instr)<=6) OR opcode(instr)=33);
 	end wr_instr;
 	
 	function b1_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
@@ -71,7 +71,7 @@ architecture Behavioral of processor is
 	
 	function ra_instr(signal instr : std_logic_vector(15 downto 0)) return boolean is
 	begin
-		return (opcode(instr)=5 OR opcode(instr)=6 OR opcode(instr)=32 OR b2_instr(instr));
+		return (opcode(instr)=5 OR opcode(instr)=6 OR opcode(instr)=7 OR opcode(instr)=32 OR b2_instr(instr));
 	end ra_instr;
 	
 	Component register_file
@@ -169,6 +169,7 @@ architecture Behavioral of processor is
 	signal wr_index : std_logic_vector(2 downto 0);
 	signal wr_enable : std_logic;
 	signal wr_overflow : std_logic;
+	signal wr_overflow_data : std_logic_vector(15 downto 0);
 		
 	signal in1 : std_logic_vector(15 downto 0);
 	signal in2 : std_logic_vector(15 downto 0);
@@ -203,7 +204,7 @@ begin
 		wr_index => wr_index,
 		wr_data => reg_EX.result,
 		wr_enable => wr_enable,
-		wr_overflow_data => reg_EX.overflow,
+		wr_overflow_data => wr_overflow_data,
 		wr_overflow => wr_overflow
 	);
 	
@@ -232,14 +233,10 @@ begin
 	
 	-- check if we have something to write back
 	wr_enable <= '1' when wr_instr(reg_EX.instr) else '0';
-	wr_overflow <= '1' when (wr_instr(reg_EX.instr) AND reg_EX.instr(11 downto 9)="011") else '0';
+	wr_overflow <= '1' when ((wr_instr(reg_EX.instr) AND reg_EX.instr(11 downto 9)="011") OR opcode(reg_EX.instr)=70)  else '0';
 	
-	-- check opcode and conditions for branch
-	branch_trigger <= '1' when ( -- not currently branching
-		(opcode(reg_EX.instr)=64 OR opcode(reg_EX.instr)=70 OR opcode(reg_EX.instr)=71) -- BRR, BR.SUB or RETURN instruction (always branch)
-		OR ((opcode(reg_EX.instr)=65 OR opcode(reg_EX.instr)=68) AND reg_EX.n_flag='1') -- if NEG branch
-		OR ((opcode(reg_EX.instr)=66 OR opcode(reg_EX.instr)=69) AND reg_EX.z_flag='1') -- if ZERO branch
-	) else '0';
+	-- write PC to r7 when BR.SUB, otherwise write overflow
+	wr_overflow_data <= std_logic_vector(resize(unsigned(reg_EX.PC),16)) when opcode(reg_EX.instr)=70 else reg_EX.overflow;
 	
 	-- result forwarding {
 	-- (may need to add load instruction support, branch instructions should be covered by branch
@@ -250,7 +247,7 @@ begin
 		)
 	) else reg_EX.result when ( -- check for result forward
 		wr_instr(reg_EX.instr) AND ( -- last instruction is writing back
-			(a1_instr(reg_ID.instr) AND reg_ID.instr(5 downto 3)=reg_EX.instr(8 downto 6)) -- A1, instruction and rb=writeback register
+			((a1_instr(reg_ID.instr) OR opcode(reg_ID.instr)=7) AND reg_ID.instr(5 downto 3)=reg_EX.instr(8 downto 6)) -- A1 or TEST, instruction and rb=writeback register
 			OR (ra_instr(reg_ID.instr) AND reg_ID.instr(8 downto 6)=reg_EX.instr(8 downto 6)) -- A2/OUT ra=writeback register
 		)
 	) else reg_ID.data1;
@@ -265,6 +262,28 @@ begin
 		)
 	) else reg_ID.data2;
 	
+	branch_trigger <= '1' when ( -- check opcode and conditions for branch
+			(opcode(reg_EX.instr)=64 OR opcode(reg_EX.instr)=70 OR opcode(reg_EX.instr)=71) -- BRR, BR.SUB or RETURN instruction (always branch)
+					OR ((opcode(reg_EX.instr)=65 OR opcode(reg_EX.instr)=68) AND reg_EX.n_flag='1') -- if NEG branch
+					OR ((opcode(reg_EX.instr)=66 OR opcode(reg_EX.instr)=69) AND reg_EX.z_flag='1') -- if ZERO branch
+			) 
+			else '0';
+	
+	ControlUpdate: process(clk, rst) is
+	begin
+		if (rst='1') then
+			PC <= (others => '0');
+		
+		elsif falling_edge(clk) then -- (not rst)
+			if (branch_trigger='1') then
+				-- we're branching, so PC gets set to branch address
+				PC <= std_logic_vector(resize(signed(reg_EX.result),7));
+			else
+				PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
+			end if;
+		end if;
+	end process;
+	
 	-- } end result forwarding
 	InstructionFetch: process(clk, rst) is
 	begin
@@ -272,24 +291,15 @@ begin
 			reg_IF.instr <= (others => '0');
 			reg_IF.inport <= (others => '0');
 			reg_IF.PC <= (others => '0');
-			PC <= (others => '0');
 			
-		elsif rising_edge(clk) then -- (not rst)
+		elsif falling_edge(clk) then -- (not rst)
 			reg_IF.instr <= rom_data;
 			reg_IF.inport <= inport;
-			reg_IF.PC <= PC;
+			reg_IF.PC <= std_logic_vector(unsigned(PC) + 1);
 			
 			-- If branching, nop instruction
 			if (branch_trigger='1') then
 				reg_IF.instr <= (others => '0');
-			end if;
-			
-		elsif falling_edge(clk) then -- (update PC)
-			if (branch_trigger='1') then
-				-- we're branching, so PC gets set to branch address
-				PC <= reg_EX.result(6 downto 0);
-			else
-				PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
 			end if;
 		end if;
 	end process;
@@ -302,7 +312,7 @@ begin
 			reg_ID.data2 <= (others => '0');
 			reg_ID.PC <= (others => '0');
 			
-		elsif rising_edge(clk) then -- (not rst)		
+		elsif falling_edge(clk) then -- (not rst)		
 			reg_ID.instr <= reg_IF.instr;
 			reg_ID.PC <= reg_IF.PC;
 			
@@ -314,7 +324,7 @@ begin
 			elsif (opcode(reg_IF.instr)=71) then -- RETURN instruction, want r7 (rd_data1) and 0
 				reg_ID.data1 <= rd_data1;
 				reg_ID.data2 <= x"0000";
-			elsif (ra_instr(reg_IF.instr)) then -- A2 instruction (A3 already checked)
+			elsif (ra_instr(reg_IF.instr) AND NOT b2_instr(reg_IF.instr)) then -- A2 instruction (A3 already checked)
 				-- ra and cl (immediate)
 				reg_ID.data1 <= rd_data1;
 				if (opcode(reg_ID.instr)=32) then -- OUT, null cl
@@ -324,17 +334,16 @@ begin
 				end if;
 			elsif (b1_instr(reg_IF.instr)) then -- B1 branch (PC and disp.l)
 				reg_ID.data1 <= std_logic_vector(resize(unsigned(PC),16));
-				reg_ID.data1 <= std_logic_vector(resize(signed(reg_IF.instr(8 downto 0)),16)); -- disp.l
+				reg_ID.data2 <= std_logic_vector(resize(signed(reg_IF.instr(8 downto 0)),16)); -- disp.l
 			elsif (b2_instr(reg_IF.instr)) then -- B2 branch (ra and disp.s)
 				reg_ID.data1 <= rd_data1;
-				reg_ID.data1 <= std_logic_vector(resize(signed(reg_IF.instr(5 downto 0)),16)); -- disp.s
+				reg_ID.data2 <= std_logic_vector(resize(signed(reg_IF.instr(5 downto 0)),16)); -- disp.s
 			else
 				-- rb and rd_data2 (reg)
 				reg_ID.data1 <= rd_data1;
 				reg_ID.data2 <= rd_data2;
 			end if;
 			
-		elsif falling_edge(clk) then -- (check if branching)
 			-- If branching, nop instruction
 			if (branch_trigger='1') then
 				reg_ID.instr <= (others => '0');
@@ -352,7 +361,7 @@ begin
 			reg_EX.z_flag <= '0';
 			reg_EX.n_flag <= '0';
 			
-		elsif rising_edge(clk) then -- (not rst)
+		elsif falling_edge(clk) then -- (not rst)
 			if (unsigned(reg_EX.instr(15 downto 9))=32) then
 				outport <= reg_EX.result;
 			else
@@ -371,7 +380,6 @@ begin
 			reg_EX.z_flag <= z_flag;
 			reg_EX.n_flag <= n_flag;
 			
-		elsif falling_edge(clk) then -- (check if branching)
 			-- If branching, nop instruction
 			if (branch_trigger='1') then
 				reg_EX.instr <= (others => '0');

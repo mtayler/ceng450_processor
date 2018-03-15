@@ -15,7 +15,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="12" />
    <wvobject fp_name="/proc_16tb/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -27,6 +27,10 @@
    <wvobject fp_name="/proc_16tb/uut/rom_data" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rom_data[15:0]</obj_property>
       <obj_property name="ObjectShortName">rom_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/next_instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">next_instruction[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_instruction[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/proc_16tb/inport" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">inport[15:0]</obj_property>
@@ -89,10 +93,10 @@
          <obj_property name="ElementShortName">wr_overflow</obj_property>
          <obj_property name="ObjectShortName">wr_overflow</obj_property>
       </wvobject>
-      <wvobject fp_name="/proc_16tb/uut/rf0/reg_file" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">reg_file[0:7]</obj_property>
-         <obj_property name="ObjectShortName">reg_file[0:7]</obj_property>
-      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rf0/reg_file" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_file[0:7]</obj_property>
+      <obj_property name="ObjectShortName">reg_file[0:7]</obj_property>
    </wvobject>
    <wvobject fp_name="group28" type="group">
       <obj_property name="label">alu0</obj_property>
@@ -158,12 +162,6 @@
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">#ffff00</obj_property>
          </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_if.write_ignore" type="logic" db_ref_id="1">
-            <obj_property name="ElementShortName">.write_ignore</obj_property>
-            <obj_property name="ObjectShortName">reg_if.write_ignore</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#ffff00</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/proc_16tb/uut/reg_id" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_id</obj_property>
@@ -191,12 +189,6 @@
          <wvobject fp_name="/proc_16tb/uut/reg_id.pc" type="array" db_ref_id="1">
             <obj_property name="ElementShortName">.pc</obj_property>
             <obj_property name="ObjectShortName">reg_id.pc</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#008080</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_id.write_ignore" type="logic" db_ref_id="1">
-            <obj_property name="ElementShortName">.write_ignore</obj_property>
-            <obj_property name="ObjectShortName">reg_id.write_ignore</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">#008080</obj_property>
          </wvobject>
@@ -239,12 +231,6 @@
          <wvobject fp_name="/proc_16tb/uut/reg_ex.n_flag" type="logic" db_ref_id="1">
             <obj_property name="ElementShortName">.n_flag</obj_property>
             <obj_property name="ObjectShortName">reg_ex.n_flag</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_ex.write_ignore" type="logic" db_ref_id="1">
-            <obj_property name="ElementShortName">.write_ignore</obj_property>
-            <obj_property name="ObjectShortName">reg_ex.write_ignore</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">#00ffff</obj_property>
          </wvobject>
