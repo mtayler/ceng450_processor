@@ -11,7 +11,7 @@ Parsing VHDL file "/home/mtayler/ceng450/processor/PROC_16TB.vhd" into library w
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 100472 KB
-Fuse CPU Usage: 1100 ms
+Fuse CPU Usage: 900 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package attributes
@@ -25,9 +25,8 @@ Compiling architecture behavioral of entity alu [alu_default]
 Compiling architecture behavioral of entity processor [processor_default]
 Compiling architecture behavior of entity proc_16tb
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
 Compiled 16 VHDL Units
 Built simulation executable /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe
-Fuse Memory Usage: 680940 KB
-Fuse CPU Usage: 1230 ms
-GCC CPU Usage: 500 ms
+Fuse Memory Usage: 680944 KB
+Fuse CPU Usage: 1020 ms
+GCC CPU Usage: 530 ms

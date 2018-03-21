@@ -9,7 +9,7 @@ entity ram is
          clk      : in  std_logic;
 			wr_enable: in  std_logic;
          addr     : in  std_logic_vector (15 downto 0);
-         data     : out std_logic_vector (15 downto 0)
+         data     : inout std_logic_vector (15 downto 0)
          );
 end ram;
 

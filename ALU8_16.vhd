@@ -76,4 +76,3 @@ n_flag <= '1' when (alu_mode = "111" and signed(in1) < 0 and rst='0') else '0' w
 z_flag <= '1' when (alu_mode = "111" and signed(in1) = 0 and rst='0') else '0' when ((alu_mode = "111" and signed(in1) /= 0) or rst='1');
 
 end Behavioral;
-

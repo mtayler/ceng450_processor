@@ -238,6 +238,9 @@ begin
 	-- write PC to r7 when BR.SUB, otherwise write overflow
 	wr_overflow_data <= std_logic_vector(resize(unsigned(reg_EX.PC),16)) when opcode(reg_EX.instr)=70 else reg_EX.overflow;
 	
+	PC_next <= std_logic_vector(resize(signed(reg_EX.result),7)) when (branch_trigger='1')
+					else std_logic_vector(unsigned(PC) + instr_mem_size);
+	
 	-- result forwarding {
 	-- (may need to add load instruction support, branch instructions should be covered by branch
 	in1 <= reg_EX.overflow when ( -- check for overflow forward
@@ -275,12 +278,7 @@ begin
 			PC <= (others => '0');
 		
 		elsif falling_edge(clk) then -- (not rst)
-			if (branch_trigger='1') then
-				-- we're branching, so PC gets set to branch address
-				PC <= std_logic_vector(resize(signed(reg_EX.result),7));
-			else
-				PC <= std_logic_vector(unsigned(PC) + instr_mem_size);
-			end if;
+			PC <= PC_next;
 		end if;
 	end process;
 	

@@ -15,30 +15,14 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="12" />
-   <wvobject fp_name="/proc_16tb/clk" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
+   <WVObjectSize size="11" />
    <wvobject fp_name="/proc_16tb/rst" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/rom_data" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rom_data[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_data[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/next_instruction" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">next_instruction[15:0]</obj_property>
-      <obj_property name="ObjectShortName">next_instruction[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/proc_16tb/inport" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">inport[15:0]</obj_property>
-      <obj_property name="ObjectShortName">inport[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/proc_16tb/outport" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">outport[15:0]</obj_property>
-      <obj_property name="ObjectShortName">outport[15:0]</obj_property>
+   <wvobject fp_name="/proc_16tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
    <wvobject fp_name="/proc_16tb/uut/branch_trigger" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">branch_trigger</obj_property>
@@ -47,6 +31,18 @@
    <wvobject fp_name="/proc_16tb/uut/pc" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pc[6:0]</obj_property>
       <obj_property name="ObjectShortName">pc[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rom_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/inport" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inport[15:0]</obj_property>
+      <obj_property name="ObjectShortName">inport[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/outport" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outport[15:0]</obj_property>
+      <obj_property name="ObjectShortName">outport[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="group26" type="group">
       <obj_property name="label">rf0</obj_property>
