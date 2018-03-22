@@ -15,7 +15,7 @@ end ram;
 
 architecture Behavioural of ram is
 
-    type RAM_TYPE is array (0 to 127) of std_logic_vector (7 downto 0);
+    type RAM_TYPE is array (0 to 65535) of std_logic_vector (7 downto 0);
 
     variable ram_content : RAM_TYPE;
 begin
@@ -25,13 +25,24 @@ p1:    process (clk,rst)
 	begin
 	if rst then
 		ram_content := (others => 0);
-	end if;
-	if rising_edge(clk) then
+		data <= (others => '0');
+	
+	elsif rising_edge(clk) then
 		add_in := conv_integer(unsigned(addr));
 		if (wr_enable='1') then
-			ram_content(add_in) <= data;
+			ram_content(add_in) <= data(7 downto 0);
+			if (add_in < 65535) then
+				ram_content(add_in+1) <= data(15 downto 0);
+			end if;
+			
 		else
-			data <= ram_content(add_in);
+			data(7 downto 0) <= ram_content(add_in);
+			if (add_in < 65535) then
+				data(15 downto 0) <= ram_content(add_in+1);
+			else
+				data(15 downto 0) <= x"00";
+			end if;
+			
 		end if;
 	end if;
 end process;
