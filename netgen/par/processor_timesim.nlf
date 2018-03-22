@@ -12,7 +12,7 @@ Loading device for application Rf_Device from file '3s1200e.nph' in environment
 Loading constraints from 'processor.pcf'...
 The speed grade (-5) differs from the speed grade specified in the .ncd file
 (-5).
-The number of routable networks is 903
+The number of routable networks is 1104
 Processing design ... 
   Preping design's networks ...
   Preping design's macros ...
@@ -21,7 +21,7 @@ WARNING:NetListWriters:306 - Signal bus Maddsub_result_addsub0000_cy[14 : 0] on
    block alu is not reconstructed, because there are some missing bus signals.
 
 WARNING:NetListWriters:306 - Signal bus
-   NlwBufferSignal_alu0/Mmult_x_mult0000/A[17 : 0] on block alu is not
+   NlwBufferSignal_alu0/Mmult_x_mult0000/B[17 : 0] on block alu is not
    reconstructed, because there are some missing bus signals.
 Writing Verilog SDF file 'netgen/par/processor_timesim.sdf' ...
 Writing Verilog netlist file
@@ -37,4 +37,4 @@ INFO:NetListWriters:665 - For more information on how to pass the SDF switches
    to the simulator, see your Simulator tool documentation.
 Number of warnings: 2
 Number of info messages: 3
-Total memory usage is 442292 kilobytes
+Total memory usage is 446924 kilobytes

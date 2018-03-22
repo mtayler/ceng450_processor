@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/mtayler/ceng450/processor/PROC_16TB_isim_par.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="proc_16tb" />
+            <top_module name="std_logic_1164" />
+            <top_module name="vl_types" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="109" />
+   <wvobject fp_name="/proc_16tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC[6:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rom_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/inport" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inport[15:0]</obj_property>
+      <obj_property name="ObjectShortName">inport[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/outport" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outport[15:0]</obj_property>
+      <obj_property name="ObjectShortName">outport[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/DO" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DO[15:0]</obj_property>
+      <obj_property name="ObjectShortName">DO[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/DOP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DOP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">DOP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/DI" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DI[15:0]</obj_property>
+      <obj_property name="ObjectShortName">DI[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/DIP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DIP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">DIP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/EN" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">EN</obj_property>
+      <obj_property name="ObjectShortName">EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/WE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/SSR" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SSR</obj_property>
+      <obj_property name="ObjectShortName">SSR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/addr_int" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addr_int[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_int[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/di_int" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">di_int[15:0]</obj_property>
+      <obj_property name="ObjectShortName">di_int[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/dip_int" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dip_int[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dip_int[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/en_int" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">en_int</obj_property>
+      <obj_property name="ObjectShortName">en_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/clk_int" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_int</obj_property>
+      <obj_property name="ObjectShortName">clk_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/we_int" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we_int</obj_property>
+      <obj_property name="ObjectShortName">we_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/ssr_int" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ssr_int</obj_property>
+      <obj_property name="ObjectShortName">ssr_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/di_enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">di_enable</obj_property>
+      <obj_property name="ObjectShortName">di_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/GSR" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">GSR</obj_property>
+      <obj_property name="ObjectShortName">GSR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/gsr_int" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">gsr_int</obj_property>
+      <obj_property name="ObjectShortName">gsr_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/do_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">do_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">do_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/dop_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dop_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dop_out[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/mem" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem[1023:0,15:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[1023:0,15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/memp" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">memp[1023:0,1:0]</obj_property>
+      <obj_property name="ObjectShortName">memp[1023:0,1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">count[8:0]</obj_property>
+      <obj_property name="ObjectShortName">count[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/countp" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">countp[8:0]</obj_property>
+      <obj_property name="ObjectShortName">countp[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/wr_mode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_mode[1:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_mode[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/notifier" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">notifier</obj_property>
+      <obj_property name="ObjectShortName">notifier</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT[17:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/LOC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LOC[95:0]</obj_property>
+      <obj_property name="ObjectShortName">LOC[95:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/SRVAL" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SRVAL[17:0]</obj_property>
+      <obj_property name="ObjectShortName">SRVAL[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/WRITE_MODE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">WRITE_MODE[87:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_MODE[87:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_00" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_00[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_00[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_01" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_01[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_01[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_02" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_02[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_02[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_03" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_03[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_03[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_04" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_04[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_04[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_05" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_05[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_05[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_06" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_06[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_06[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_07" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_07[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_07[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_08" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_08[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_08[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_09" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_09[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_09[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_0A" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_0A[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_0A[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_0B" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_0B[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_0B[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_0C" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_0C[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_0C[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_0D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_0D[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_0D[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_0E" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_0E[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_0E[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_0F" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_0F[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_0F[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_10" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_10[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_10[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_11" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_11[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_11[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_12" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_12[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_12[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_13" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_13[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_13[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_14" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_14[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_14[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_15" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_15[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_15[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_16" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_16[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_16[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_17" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_17[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_17[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_18" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_18[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_18[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_19" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_19[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_19[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_1A" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_1A[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_1A[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_1B" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_1B[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_1B[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_1C" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_1C[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_1C[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_1D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_1D[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_1D[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_1E" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_1E[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_1E[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_1F" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_1F[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_1F[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_20" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_20[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_20[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_21" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_21[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_21[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_22" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_22[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_22[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_23" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_23[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_23[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_24" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_24[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_24[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_25" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_25[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_25[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_26" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_26[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_26[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_27" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_27[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_27[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_28" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_28[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_28[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_29" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_29[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_29[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_2A" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_2A[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_2A[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_2B" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_2B[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_2B[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_2C" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_2C[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_2C[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_2D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_2D[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_2D[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_2E" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_2E[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_2E[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_2F" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_2F[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_2F[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_30" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_30[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_30[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_31" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_31[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_31[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_32" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_32[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_32[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_33" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_33[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_33[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_34" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_34[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_34[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_35" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_35[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_35[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_36" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_36[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_36[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_37" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_37[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_37[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_38" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_38[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_38[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_39" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_39[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_39[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_3A" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_3A[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_3A[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_3B" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_3B[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_3B[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_3C" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_3C[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_3C[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_3D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_3D[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_3D[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_3E" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_3E[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_3E[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INIT_3F" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INIT_3F[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INIT_3F[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_00" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_00[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_00[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_01" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_01[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_01[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_02" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_02[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_02[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_03" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_03[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_03[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_04" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_04[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_04[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_05" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_05[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_05[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_06" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_06[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_06[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rom0/Mrom_data_rom0000/INITP_07" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INITP_07[255:0]</obj_property>
+      <obj_property name="ObjectShortName">INITP_07[255:0]</obj_property>
+   </wvobject>
+</wave_config>

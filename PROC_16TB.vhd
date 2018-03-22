@@ -89,9 +89,11 @@ BEGIN
       -- hold reset state for 100 ns.
 		rst <= '1';
       wait for 100 ns;
+		
+		wait until falling_edge(clk); wait for clk_period/4; rst <= '0';
 
       -- Load correct values indicated by TB
-		wait until rising_edge(clk); rst <= '0'; inport <= x"0002";
+		wait until rising_edge(clk); inport <= x"0002";
 		wait until rising_edge(clk); inport <= x"0003";
 		wait until rising_edge(clk); inport <= x"0001";
 		wait until rising_edge(clk); inport <= x"0005";

@@ -138,98 +138,14 @@
       <wvobject fp_name="/proc_16tb/uut/reg_if" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_if</obj_property>
          <obj_property name="ObjectShortName">reg_if</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="CustomSignalColor">#ffff00</obj_property>
-         <wvobject fp_name="/proc_16tb/uut/reg_if.instr" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.instr</obj_property>
-            <obj_property name="ObjectShortName">reg_if.instr</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#ffff00</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_if.inport" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.inport</obj_property>
-            <obj_property name="ObjectShortName">reg_if.inport</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#ffff00</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_if.pc" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.pc</obj_property>
-            <obj_property name="ObjectShortName">reg_if.pc</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#ffff00</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/proc_16tb/uut/reg_id" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_id</obj_property>
          <obj_property name="ObjectShortName">reg_id</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="CustomSignalColor">#008080</obj_property>
-         <wvobject fp_name="/proc_16tb/uut/reg_id.instr" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.instr</obj_property>
-            <obj_property name="ObjectShortName">reg_id.instr</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#008080</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_id.data1" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.data1</obj_property>
-            <obj_property name="ObjectShortName">reg_id.data1</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#008080</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_id.data2" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.data2</obj_property>
-            <obj_property name="ObjectShortName">reg_id.data2</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#008080</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_id.pc" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.pc</obj_property>
-            <obj_property name="ObjectShortName">reg_id.pc</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#008080</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/proc_16tb/uut/reg_ex" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_ex</obj_property>
          <obj_property name="ObjectShortName">reg_ex</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.instr</obj_property>
-            <obj_property name="ObjectShortName">reg_ex.instr</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_ex.result" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.result</obj_property>
-            <obj_property name="ObjectShortName">reg_ex.result</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_ex.overflow" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.overflow</obj_property>
-            <obj_property name="ObjectShortName">reg_ex.overflow</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_ex.pc" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">.pc</obj_property>
-            <obj_property name="ObjectShortName">reg_ex.pc</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_ex.z_flag" type="logic" db_ref_id="1">
-            <obj_property name="ElementShortName">.z_flag</obj_property>
-            <obj_property name="ObjectShortName">reg_ex.z_flag</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         </wvobject>
-         <wvobject fp_name="/proc_16tb/uut/reg_ex.n_flag" type="logic" db_ref_id="1">
-            <obj_property name="ElementShortName">.n_flag</obj_property>
-            <obj_property name="ObjectShortName">reg_ex.n_flag</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">#00ffff</obj_property>
-         </wvobject>
       </wvobject>
    </wvobject>
 </wave_config>
