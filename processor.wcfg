@@ -15,7 +15,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="/proc_16tb/rst" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -27,6 +27,10 @@
    <wvobject fp_name="/proc_16tb/uut/branch_trigger" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">branch_trigger</obj_property>
       <obj_property name="ObjectShortName">branch_trigger</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/pc_next" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_next[6:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_next[6:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/proc_16tb/uut/pc" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pc[6:0]</obj_property>
@@ -132,6 +136,12 @@
          <obj_property name="ObjectShortName">n_flag</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/merged_bits" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">merged_bits[15:0]</obj_property>
+      <obj_property name="ObjectShortName">merged_bits[15:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
    <wvobject fp_name="group52" type="group">
       <obj_property name="label">pipeline_registers</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -146,6 +156,22 @@
       <wvobject fp_name="/proc_16tb/uut/reg_ex" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_ex</obj_property>
          <obj_property name="ObjectShortName">reg_ex</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group47" type="group">
+      <obj_property name="label">ram</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/proc_16tb/uut/ram0/wr_enable" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wr_enable</obj_property>
+         <obj_property name="ObjectShortName">wr_enable</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/ram0/addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addr[15:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/ram0/data" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data[15:0]</obj_property>
+         <obj_property name="ObjectShortName">data[15:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
