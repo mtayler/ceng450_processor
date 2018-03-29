@@ -274,6 +274,8 @@ begin
 			else "001" when (opcode(reg_ID.instr)=DOUT OR (opcode(reg_ID.instr)>=BRR AND opcode(reg_ID.instr)<=RET) OR opcode(reg_ID.instr)=DIN OR opcode(reg_ID.instr)=MOV) else "000";
 	
 	result <= ram_data when (opcode(reg_ID.instr)=LOAD) else alu_result;
+	
+	merged_bits <= reg_ID.instr(7 downto 0) & in1(7 downto 0) when reg_ID.instr(8)='1' else in1(15 downto 8) & reg_ID.instr(7 downto 0);
 
 	-- set read index to r7 in special cases, ra normally
 	rd_index1 <= reg_IF.instr(8 downto 6) when (ra_instr(reg_IF.instr) OR l2_instr(reg_IF.instr)) else
@@ -427,26 +429,16 @@ begin
 			reg_EX.PC <= (others => '0');
 			reg_EX.z_flag <= '0';
 			reg_EX.n_flag <= '0';
-		
-		elsif falling_edge(clk) then
-		if reg_ID.instr(8)='1' then                   -- set loadimm upper bits
-			merged_bits(15 downto 8) <= reg_ID.instr(7 downto 0);
-			merged_bits(7 downto 0) <= in1(7 downto 0);
-		else                                          -- set loadimm lower bits
-			merged_bits(15 downto 8) <= in1(15 downto 8);
-			merged_bits(7 downto 0) <= reg_ID.instr(7 downto 0);
-		end if;
 			
-		elsif rising_edge(clk) then -- (not rst)
-			if (unsigned(reg_EX.instr(15 downto 9))=DOUT) then
+		elsif rising_edge(clk) then -- (not rst)	
+			reg_EX.instr <= reg_ID.instr;
+			reg_EX.PC <= reg_ID.PC;		
+			
+			if (opcode(reg_ID.instr)=DOUT) then
 				outport <= reg_EX.result;
 			else
 				outport <= (others => '0');
 			end if;
-			
-			reg_EX.instr <= reg_ID.instr;
-			reg_EX.PC <= reg_ID.PC;
-
 
 			reg_EX.result <= result;
 			if (opcode(reg_ID.instr)=LOADIMM) then	-- for LOADIMM
