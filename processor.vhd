@@ -271,7 +271,7 @@ begin
 -- COMBINATIONAL LOGIC
 	-- bottom 3 bits of A format instruction, add instruction on BRANCH or OUT
 	alu_mode <= reg_ID.instr(11 downto 9) when (opcode(reg_ID.instr) <= 7)
-			else "001" when ((opcode(reg_ID.instr)>=BRR AND opcode(reg_ID.instr)<=RET) OR opcode(reg_ID.instr)=DIN OR opcode(reg_ID.instr)=MOV) else "000";
+			else "001" when (opcode(reg_ID.instr)=DOUT OR (opcode(reg_ID.instr)>=BRR AND opcode(reg_ID.instr)<=RET) OR opcode(reg_ID.instr)=DIN OR opcode(reg_ID.instr)=MOV) else "000";
 	
 	result <= ram_data when (opcode(reg_ID.instr)=LOAD) else alu_result;
 
