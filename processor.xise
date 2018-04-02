@@ -17,7 +17,7 @@
   <files>
     <file xil_pn:name="RF8_16.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="2"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
     </file>
     <file xil_pn:name="RF8_16TB.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
@@ -27,7 +27,7 @@
     </file>
     <file xil_pn:name="ALU8_16.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="4"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
     </file>
     <file xil_pn:name="ALU8_16TB.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
@@ -37,11 +37,11 @@
     </file>
     <file xil_pn:name="processor.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="5"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
     </file>
     <file xil_pn:name="RAM_16.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="3"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
     </file>
     <file xil_pn:name="PROC_16TB.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="6"/>
@@ -54,9 +54,7 @@
     </file>
     <file xil_pn:name="../../Downloads/FORMAT_L_Test.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
-      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="106"/>
-      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="106"/>
-      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="106"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
     </file>
   </files>
 
@@ -296,7 +294,7 @@
     <property xil_pn:name="Shift Register Extraction" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Show All Models" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Simulation Model Target" xil_pn:value="VHDL" xil_pn:valueState="default"/>
-    <property xil_pn:name="Simulation Run Time ISim" xil_pn:value="850 ns" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Simulation Run Time ISim" xil_pn:value="1 us" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Simulation Run Time Map" xil_pn:value="1000 ns" xil_pn:valueState="default"/>
     <property xil_pn:name="Simulation Run Time Par" xil_pn:value="8500 ns" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Simulation Run Time Translate" xil_pn:value="1000 ns" xil_pn:valueState="default"/>

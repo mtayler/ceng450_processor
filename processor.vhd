@@ -139,11 +139,11 @@ architecture Behavioral of processor is
 	
 	Component ram
 	PORT(
-		rst : IN std_logic;
 		clk : IN std_logic;
 		wr_enable : IN std_logic;
 		addr : IN std_logic_vector(15 downto 0);
-		data : INOUT std_logic_vector(15 downto 0)
+		data_in : IN std_logic_vector(15 downto 0);
+		data_out : OUT std_logic_vector(15 downto 0)
 	);
 	end Component;
 	
@@ -235,11 +235,11 @@ begin
 	);
 	
 	ram0 : ram PORT MAP (
-		rst => rst,
 		clk => clk,
 		wr_enable => ram_wr_enable,
 		addr => ram_addr,
-		data => ram_data
+		data_in => in2,
+		data_out => ram_data
 	);
 
 	rf0: register_file PORT MAP (
@@ -287,9 +287,6 @@ begin
 			else (others => '0');
 			
 	ram_wr_enable <= '1' when opcode(reg_ID.instr)=STORE else '0';
-	
-	-- TODO: ensure driving to Z here and data from RAM module actually works
-	ram_data <= in2 when (opcode(reg_ID.instr)=STORE) else (others => 'Z');
 	
 	-- r7 when BR_SUB otherwise ra
 	wr_index <= "111" when (opcode(reg_EX.instr)=BR_SUB) else reg_EX.instr(8 downto 6);

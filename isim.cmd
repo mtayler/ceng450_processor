@@ -1,2 +1,2 @@
 onerror {resume}
-run 850 ns;
+run 1 us;
