@@ -34,7 +34,6 @@ entity processor is
 	PORT(
 		clk : IN std_logic;
 		rst : IN std_logic;
-		instruction : IN std_logic_vector(15 downto 0);
 		inport: IN std_logic_vector(15 downto 0);
 		outport : OUT std_logic_vector(15 downto 0)
 	);
@@ -139,11 +138,11 @@ architecture Behavioral of processor is
 	
 	Component ram
 	PORT(
-		clk : IN std_logic;
-		wr_enable : IN std_logic;
-		addr : IN std_logic_vector(15 downto 0);
-		data_in : IN std_logic_vector(15 downto 0);
-		data_out : OUT std_logic_vector(15 downto 0)
+      clk : in  std_logic;
+		we : in  std_logic_vector (1 downto 0);
+      addr : in  std_logic_vector (11 downto 0);
+      din : in  std_logic_vector (15 downto 0);
+		dout : out std_logic_vector (15 downto 0)
 	);
 	end Component;
 	
@@ -222,7 +221,7 @@ architecture Behavioral of processor is
 	
 	signal ram_data : std_logic_vector(15 downto 0);
 	signal ram_addr : std_logic_vector(15 downto 0);
-	signal ram_wr_enable : std_logic;
+	signal ram_wr_enable : std_logic_vector(1 downto 0);
 	
 	signal merged_bits : std_logic_vector(15 downto 0);
 
@@ -236,10 +235,10 @@ begin
 	
 	ram0 : ram PORT MAP (
 		clk => clk,
-		wr_enable => ram_wr_enable,
-		addr => ram_addr,
-		data_in => in2,
-		data_out => ram_data
+		we => ram_wr_enable,
+		addr => ram_addr(11 downto 0),
+		din => in2,
+		dout => ram_data
 	);
 
 	rf0: register_file PORT MAP (
@@ -286,7 +285,7 @@ begin
 			else in2 when (opcode(reg_ID.instr)=LOAD)
 			else (others => '0');
 			
-	ram_wr_enable <= '1' when opcode(reg_ID.instr)=STORE else '0';
+	ram_wr_enable <= "11" when opcode(reg_ID.instr)=STORE else "00";
 	
 	-- r7 when BR_SUB otherwise ra
 	wr_index <= "111" when (opcode(reg_EX.instr)=BR_SUB) else reg_EX.instr(8 downto 6);
@@ -336,6 +335,8 @@ begin
 					OR ((opcode(reg_EX.instr)=BRR_Z OR opcode(reg_EX.instr)=BR_Z) AND reg_EX.z_flag='1') -- if ZERO branch
 			) 
 			else '0';
+			
+	outport <= reg_EX.result when (opcode(reg_EX.instr)=DOUT) else (others => '0');
 	
 	ControlUpdate: process(clk, rst) is
 	begin
@@ -430,12 +431,6 @@ begin
 		elsif rising_edge(clk) then -- (not rst)	
 			reg_EX.instr <= reg_ID.instr;
 			reg_EX.PC <= reg_ID.PC;		
-			
-			if (opcode(reg_ID.instr)=DOUT) then
-				outport <= reg_EX.result;
-			else
-				outport <= (others => '0');
-			end if;
 
 			reg_EX.result <= result;
 			if (opcode(reg_ID.instr)=LOADIMM) then	-- for LOADIMM

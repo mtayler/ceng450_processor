@@ -1,0 +1,48 @@
+// Xilinx design hierarchy information file produced by netgen (P.20131013) 
+// The information in this file is useful for 
+//   - Design hierarchy relationship between modules 
+//   - Bottom up compilation order (VHDL simulation) 
+//   - SDF file annotation (VHDL simulation) 
+//
+//  Design Name : processor
+//
+//  Module      : The name of the hierarchical design module.
+//  Instance    : The instance name used in the parent module.
+//  Design File : The name of the file that contains the module.
+//  SDF File    : The SDF file associated with the module.
+//  SubModule   : The sub module(s) contained within a given module.
+//     Module, Instance : The sub module and instance names.
+
+  Module      : alu
+  Instance    : alu0
+  Design File : alu_sim.vhd
+  SDF File    : alu_sim.sdf
+  SubModule   : NONE
+
+  Module      : register_file
+  Instance    : rf0
+  Design File : register_file_sim.vhd
+  SDF File    : register_file_sim.sdf
+  SubModule   : NONE
+
+  Module      : ram
+  Instance    : ram0
+  Design File : ram_sim.vhd
+  SDF File    : ram_sim.sdf
+  SubModule   : NONE
+
+  Module      : ROM_VHDL
+  Instance    : rom0
+  Design File : ROM_VHDL_sim.vhd
+  SDF File    : ROM_VHDL_sim.sdf
+  SubModule   : NONE
+
+  Module      : processor
+  Design File : processor_timesim.vhd
+  SDF File    : processor_timesim.sdf
+  SubModule   : ROM_VHDL, ram, register_file, alu
+       Module : ROM_VHDL, Instance : rom0
+       Module : ram, Instance : ram0
+       Module : register_file, Instance : rf0
+       Module : alu, Instance : alu0
+

@@ -9,7 +9,6 @@ Time resolution is 1 ps
 # onerror resume
 # run 1 us
 Simulator is doing circuit initialization process.
-at 0 ps, Instance /proc_16tb/uut/ram0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /proc_16tb/uut/rf0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 Finished circuit initialization process.

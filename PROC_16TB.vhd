@@ -43,7 +43,6 @@ ARCHITECTURE behavior OF PROC_16TB IS
     PORT(
          clk : IN  std_logic;
          rst : IN  std_logic;
-         instruction : IN  std_logic_vector(15 downto 0);
 			inport : IN std_logic_vector(15 downto 0);
          outport : OUT  std_logic_vector(15 downto 0)
         );
@@ -53,14 +52,13 @@ ARCHITECTURE behavior OF PROC_16TB IS
    --Inputs
    signal clk : std_logic := '0';
    signal rst : std_logic := '0';
-   signal instruction : std_logic_vector(15 downto 0) := (others => '0');
 	signal inport : std_logic_vector(15 downto 0) := (others => '0');
 
  	--Outputs
    signal outport : std_logic_vector(15 downto 0);
 
    -- Clock period definitions
-   constant clk_period : time := 10 ns;
+   constant clk_period : time := 20 ns;
  
 BEGIN
  
@@ -68,7 +66,6 @@ BEGIN
    uut: processor PORT MAP (
           clk => clk,
           rst => rst,
-          instruction => instruction,
 			 inport => inport,
           outport => outport
         );
@@ -86,9 +83,9 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      -- hold reset state for 100 ns
 		rst <= '1';
-      wait for 98 ns;
+      wait for 101 ns;
 		
 --		wait until falling_edge(clk); wait for clk_period/4;
 		rst <= '0';

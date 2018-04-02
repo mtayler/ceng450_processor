@@ -3,7 +3,7 @@ ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/mtayler/ceng450/processor/../../Downloads/FORMAT_L_Test.vhd" into library work
+Parsing VHDL file "/home/mtayler/ceng450/processor/../../Downloads/Test_FormatA_16Bit.vhd" into library work
 Parsing VHDL file "/home/mtayler/ceng450/processor/RF8_16.vhd" into library work
 Parsing VHDL file "/home/mtayler/ceng450/processor/RAM_16.vhd" into library work
 Parsing VHDL file "/home/mtayler/ceng450/processor/ALU8_16.vhd" into library work
@@ -11,8 +11,8 @@ Parsing VHDL file "/home/mtayler/ceng450/processor/processor.vhd" into library w
 Parsing VHDL file "/home/mtayler/ceng450/processor/PROC_16TB.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 100860 KB
-Fuse CPU Usage: 900 ms
+Fuse Memory Usage: 100740 KB
+Fuse CPU Usage: 1030 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package attributes
@@ -21,14 +21,15 @@ Compiling package numeric_std
 Compiling package std_logic_arith
 Compiling package std_logic_unsigned
 Compiling architecture bhv of entity ROM_VHDL [rom_vhdl_default]
-Compiling architecture behavioural of entity ram [ram_default]
+Compiling architecture behavioral of entity ram [ram_default]
 Compiling architecture behavioural of entity register_file [register_file_default]
 Compiling architecture behavioral of entity alu [alu_default]
 Compiling architecture behavioral of entity processor [processor_default]
 Compiling architecture behavior of entity proc_16tb
 Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 18 VHDL Units
 Built simulation executable /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe
-Fuse Memory Usage: 681348 KB
-Fuse CPU Usage: 1110 ms
-GCC CPU Usage: 610 ms
+Fuse Memory Usage: 681140 KB
+Fuse CPU Usage: 1200 ms
+GCC CPU Usage: 1500 ms
