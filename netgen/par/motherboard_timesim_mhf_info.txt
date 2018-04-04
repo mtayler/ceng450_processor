@@ -4,7 +4,7 @@
 //   - Bottom up compilation order (VHDL simulation) 
 //   - SDF file annotation (VHDL simulation) 
 //
-//  Design Name : processor
+//  Design Name : motherboard
 //
 //  Module      : The name of the hierarchical design module.
 //  Instance    : The instance name used in the parent module.
@@ -38,11 +38,25 @@
   SubModule   : NONE
 
   Module      : processor
-  Design File : processor_timesim.vhd
-  SDF File    : processor_timesim.sdf
+  Instance    : proc
+  Design File : processor_sim.vhd
+  SDF File    : processor_sim.sdf
   SubModule   : ROM_VHDL, ram, register_file, alu
        Module : ROM_VHDL, Instance : rom0
        Module : ram, Instance : ram0
        Module : register_file, Instance : rf0
        Module : alu, Instance : alu0
+
+  Module      : display_controller
+  Instance    : dc
+  Design File : display_controller_sim.vhd
+  SDF File    : display_controller_sim.sdf
+  SubModule   : NONE
+
+  Module      : motherboard
+  Design File : motherboard_timesim.vhd
+  SDF File    : motherboard_timesim.sdf
+  SubModule   : display_controller, processor
+       Module : display_controller, Instance : dc
+       Module : processor, Instance : proc
 

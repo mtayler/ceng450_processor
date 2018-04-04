@@ -1,24 +1,24 @@
 --------------------------------------------------------------------------------
--- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 --------------------------------------------------------------------------------
 --   ____  ____
 --  /   /\/   /
 -- /___/  \  /    Vendor: Xilinx
--- \   \   \/     Version: P.20131013
+-- \   \   \/     Version: O.87xd
 --  \   \         Application: netgen
 --  /   /         Filename: ROM_VHDL_sim.vhd
--- /___/   /\     Timestamp: Mon Apr  2 00:05:05 2018
+-- /___/   /\     Timestamp: Tue Apr 03 16:57:27 2018
 -- \   \  /  \ 
 --  \___\/\___\
 --             
 -- Command	: -intstyle ise -s 5 -pcf processor.pcf -mhf -rpw 100 -tpw 0 -ar Structure -tm processor -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim processor.ncd processor_timesim.vhd 
--- Device	: 3s1200efg320-5 (PRODUCTION 1.27 2013-10-13)
+-- Device	: 3s1200efg320-5 (PRODUCTION 1.27 2012-01-07)
 -- Input file	: processor.ncd
--- Output file	: /home/mtayler/ceng450/processor/netgen/par/processor_timesim.vhd
+-- Output file	: C:\Users\mtayler\Documents\ceng450_processor\netgen\par\processor_timesim.vhd
 -- # of Entities	: 5
 -- Design Name	: processor
 -- Module Name	: ROM_VHDL
--- Xilinx	: /opt/Xilinx/14.7/ISE_DS/ISE/
+-- Xilinx	: C:\Xilinx\13.4\ISE_DS\ISE\
 --             
 -- Purpose:    
 --     This VHDL netlist is a verification model and uses simulation 
@@ -72,8 +72,8 @@ architecture Structure of ROM_VHDL is
 begin
   Mrom_data_rom0000 : X_RAMB16_S18
     generic map(
-      INIT_00 => X"00000AC2000000000000000002D1000000000000000042C04280424000000000",
-      INIT_01 => X"000000000000000000000000000040800000000000000000068B000000000000",
+      INIT_00 => X"84010E800494024C064B27382500240126F82500240226B82500240542400000",
+      INIT_01 => X"000000000000000000000000000000000000000000000000000081FF404081FA",
       INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -147,7 +147,7 @@ begin
       SRVAL => X"00000",
       INIT => X"00000",
       WRITE_MODE => "WRITE_FIRST",
-      LOC => "RAMB16_X1Y7"
+      LOC => "RAMB16_X1Y6"
     )
     port map (
       CLK => clk,

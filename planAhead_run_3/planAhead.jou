@@ -1,0 +1,55 @@
+#-----------------------------------------------------------
+# PlanAhead v13.4 (64-bit)
+# Build 157570 by hdbuild on Fri Dec 16 13:06:31 MST 2011
+# Start of session at: Tue Apr 03 15:21:13 2018
+# Process ID: 872
+# Log file: C:/Users/mtayler/Documents/ceng450_processor/planAhead_run_3/planAhead.log
+# Journal file: C:/Users/mtayler/Documents/ceng450_processor/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Users/mtayler/Documents/ceng450_processor/pa.fromHdl.tcl
+startgroup
+set_property loc PAD193 [get_ports clk]
+endgroup
+startgroup
+set_property loc IPAD79 [get_ports rst]
+endgroup
+startgroup
+set_property loc PAD99 [get_ports {an[0]}]
+endgroup
+startgroup
+set_property loc PAD99 [get_ports {an[0]}]
+endgroup
+startgroup
+set_property loc PAD107 [get_ports {an[1]}]
+endgroup
+startgroup
+set_property loc PAD81 [get_ports {an[2]}]
+endgroup
+startgroup
+set_property loc PAD93 [get_ports {an[3]}]
+endgroup
+startgroup
+set_property loc PAD123 [get_ports {sseg[0]}]
+endgroup
+startgroup
+set_property loc PAD100 [get_ports {sseg[1]}]
+endgroup
+startgroup
+set_property loc PAD83 [get_ports {sseg[2]}]
+endgroup
+startgroup
+set_property loc PAD82 [get_ports {sseg[3]}]
+endgroup
+startgroup
+set_property loc PAD98 [get_ports {sseg[4]}]
+endgroup
+startgroup
+set_property loc PAD115 [get_ports {sseg[5]}]
+endgroup
+startgroup
+set_property loc PAD105 [get_ports {sseg[6]}]
+endgroup
+save_design
+exit
+stop_gui

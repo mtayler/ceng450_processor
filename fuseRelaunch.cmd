@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -o "/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe" -prj "/home/mtayler/ceng450/processor/PROC_16TB_beh.prj" "work.PROC_16TB" 
+-intstyle "ise" -incremental -o "C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_isim_par.exe" -prj "C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_par.prj" "work.PROC_16TB" 

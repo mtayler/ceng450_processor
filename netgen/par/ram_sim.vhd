@@ -1,24 +1,24 @@
 --------------------------------------------------------------------------------
--- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 --------------------------------------------------------------------------------
 --   ____  ____
 --  /   /\/   /
 -- /___/  \  /    Vendor: Xilinx
--- \   \   \/     Version: P.20131013
+-- \   \   \/     Version: O.87xd
 --  \   \         Application: netgen
 --  /   /         Filename: ram_sim.vhd
--- /___/   /\     Timestamp: Mon Apr  2 00:05:05 2018
+-- /___/   /\     Timestamp: Tue Apr 03 16:57:27 2018
 -- \   \  /  \ 
 --  \___\/\___\
 --             
 -- Command	: -intstyle ise -s 5 -pcf processor.pcf -mhf -rpw 100 -tpw 0 -ar Structure -tm processor -insert_pp_buffers true -w -dir netgen/par -ofmt vhdl -sim processor.ncd processor_timesim.vhd 
--- Device	: 3s1200efg320-5 (PRODUCTION 1.27 2013-10-13)
+-- Device	: 3s1200efg320-5 (PRODUCTION 1.27 2012-01-07)
 -- Input file	: processor.ncd
--- Output file	: /home/mtayler/ceng450/processor/netgen/par/processor_timesim.vhd
+-- Output file	: C:\Users\mtayler\Documents\ceng450_processor\netgen\par\processor_timesim.vhd
 -- # of Entities	: 5
 -- Design Name	: processor
 -- Module Name	: ram
--- Xilinx	: /opt/Xilinx/14.7/ISE_DS/ISE/
+-- Xilinx	: C:\Xilinx\13.4\ISE_DS\ISE\
 --             
 -- Purpose:    
 --     This VHDL netlist is a verification model and uses simulation 
@@ -68,7 +68,7 @@ architecture Structure of ram is
 begin
   ram0_Mram_RAM1_CLKAINV : X_INV
     generic map(
-      LOC => "RAMB16_X0Y9",
+      LOC => "RAMB16_X0Y5",
       PATHPULSE => 555 ps
     )
     port map (
@@ -144,7 +144,7 @@ begin
       SRVAL => X"0",
       INIT => X"0",
       WRITE_MODE => "READ_FIRST",
-      LOC => "RAMB16_X0Y9"
+      LOC => "RAMB16_X0Y5"
     )
     port map (
       CLK => ram0_Mram_RAM1_CLKA_INTNOT,
@@ -174,7 +174,7 @@ begin
     );
   ram0_Mram_RAM2_CLKAINV : X_INV
     generic map(
-      LOC => "RAMB16_X0Y8",
+      LOC => "RAMB16_X0Y6",
       PATHPULSE => 555 ps
     )
     port map (
@@ -250,7 +250,7 @@ begin
       SRVAL => X"0",
       INIT => X"0",
       WRITE_MODE => "READ_FIRST",
-      LOC => "RAMB16_X0Y8"
+      LOC => "RAMB16_X0Y6"
     )
     port map (
       CLK => ram0_Mram_RAM2_CLKA_INTNOT,
@@ -280,7 +280,7 @@ begin
     );
   ram0_Mram_RAM3_CLKAINV : X_INV
     generic map(
-      LOC => "RAMB16_X1Y8",
+      LOC => "RAMB16_X0Y7",
       PATHPULSE => 555 ps
     )
     port map (
@@ -356,7 +356,7 @@ begin
       SRVAL => X"0",
       INIT => X"0",
       WRITE_MODE => "READ_FIRST",
-      LOC => "RAMB16_X1Y8"
+      LOC => "RAMB16_X0Y7"
     )
     port map (
       CLK => ram0_Mram_RAM3_CLKA_INTNOT,
@@ -386,7 +386,7 @@ begin
     );
   ram0_Mram_RAM4_CLKAINV : X_INV
     generic map(
-      LOC => "RAMB16_X1Y9",
+      LOC => "RAMB16_X0Y8",
       PATHPULSE => 555 ps
     )
     port map (
@@ -462,7 +462,7 @@ begin
       SRVAL => X"0",
       INIT => X"0",
       WRITE_MODE => "READ_FIRST",
-      LOC => "RAMB16_X1Y9"
+      LOC => "RAMB16_X0Y8"
     )
     port map (
       CLK => ram0_Mram_RAM4_CLKA_INTNOT,
@@ -492,7 +492,7 @@ begin
     );
   ram0_cmp_eq0000_YUSED : X_BUF
     generic map(
-      LOC => "SLICE_X44Y67",
+      LOC => "SLICE_X44Y57",
       PATHPULSE => 555 ps
     )
     port map (
@@ -502,7 +502,7 @@ begin
   Q_cmp_eq00001 : X_LUT4
     generic map(
       INIT => X"8888",
-      LOC => "SLICE_X44Y67"
+      LOC => "SLICE_X44Y57"
     )
     port map (
       ADR0 => we(0),

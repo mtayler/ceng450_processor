@@ -1,35 +1,50 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe -prj /home/mtayler/ceng450/processor/PROC_16TB_beh.prj work.PROC_16TB 
-ISim P.20131013 (signature 0xfbc00daa)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Running: C:\Xilinx\13.4\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_isim_par.exe -prj C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_par.prj work.PROC_16TB 
+ISim O.87xd (signature 0xc3576ebc)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/mtayler/ceng450/processor/../../Downloads/Test_FormatA_16Bit.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/RF8_16.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/RAM_16.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/ALU8_16.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/processor.vhd" into library work
-Parsing VHDL file "/home/mtayler/ceng450/processor/PROC_16TB.vhd" into library work
+Parsing VHDL file "C:/Users/mtayler/Documents/ceng450_processor/netgen/par/ROM_VHDL_sim.vhd" into library work
+Parsing VHDL file "C:/Users/mtayler/Documents/ceng450_processor/netgen/par/register_file_sim.vhd" into library work
+Parsing VHDL file "C:/Users/mtayler/Documents/ceng450_processor/netgen/par/ram_sim.vhd" into library work
+Parsing VHDL file "C:/Users/mtayler/Documents/ceng450_processor/netgen/par/alu_sim.vhd" into library work
+Parsing VHDL file "C:/Users/mtayler/Documents/ceng450_processor/netgen/par/processor_sim.vhd" into library work
+Parsing VHDL file "C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 100740 KB
-Fuse CPU Usage: 1030 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package attributes
 Compiling package std_logic_misc
-Compiling package numeric_std
+Compiling package textio
+Compiling package vital_timing
+Compiling package vcomponents
+Compiling package vital_primitives
+Compiling package vpackage
+Compiling architecture x_ramb16_s18_v of entity X_RAMB16_S18 [\X_RAMB16_S18(true,true,true,"UN...]
+Compiling architecture x_buf_v of entity X_BUF [\X_BUF(true,true,"UNPLACED",(0,0...]
+Compiling architecture x_roc_v of entity X_ROC [\X_ROC("UNPLACED",100000,"*")(1,...]
+Compiling architecture x_toc_v of entity X_TOC [\X_TOC("UNPLACED",0,"*")(1,8,1,1...]
+Compiling architecture structure of entity ROM_VHDL [rom_vhdl_default]
+Compiling architecture x_inv_v of entity X_INV [\X_INV(true,true,"RAMB16_X0Y5",(...]
+Compiling architecture x_ramb16_s4_v of entity X_RAMB16_S4 [\X_RAMB16_S4(true,true,true,"UNP...]
+Compiling architecture x_lut4_v of entity X_LUT4 [\X_LUT4(true,true,"UNPLACED",(0,...]
+Compiling architecture x_one_v of entity X_ONE [\X_ONE("UNPLACED")(1,8)\]
+Compiling architecture structure of entity ram [ram_default]
+Compiling architecture x_mux2_v of entity X_MUX2 [\X_MUX2(true,true,"UNPLACED",(0,...]
+Compiling architecture x_sff_v of entity X_SFF [\X_SFF(true,true,true,"UNPLACED"...]
+Compiling architecture x_zero_v of entity X_ZERO [\X_ZERO("UNPLACED")(1,8)\]
+Compiling architecture structure of entity register_file [register_file_default]
 Compiling package std_logic_arith
-Compiling package std_logic_unsigned
-Compiling architecture bhv of entity ROM_VHDL [rom_vhdl_default]
-Compiling architecture behavioral of entity ram [ram_default]
-Compiling architecture behavioural of entity register_file [register_file_default]
-Compiling architecture behavioral of entity alu [alu_default]
-Compiling architecture behavioral of entity processor [processor_default]
+Compiling package std_logic_signed
+Compiling architecture x_xor2_v of entity X_XOR2 [\X_XOR2(true,true,"UNPLACED",(0,...]
+Compiling architecture x_and2_v of entity X_AND2 [\X_AND2(true,true,"UNPLACED",(0,...]
+Compiling architecture x_mult18x18sio_v of entity X_MULT18X18SIO [\X_MULT18X18SIO(0,0,"DIRECT",0,t...]
+Compiling architecture x_ff_v of entity X_FF [\X_FF(true,true,true,"UNPLACED",...]
+Compiling architecture structure of entity alu [alu_default]
+Compiling architecture structure of entity processor [processor_default]
 Compiling architecture behavior of entity proc_16tb
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 18 VHDL Units
-Built simulation executable /home/mtayler/ceng450/processor/PROC_16TB_isim_beh.exe
-Fuse Memory Usage: 681140 KB
-Fuse CPU Usage: 1200 ms
-GCC CPU Usage: 1500 ms
+Compiled 4186 VHDL Units
+Built simulation executable C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_isim_par.exe
+Fuse Memory Usage: 130508 KB
+Fuse CPU Usage: 6894 ms

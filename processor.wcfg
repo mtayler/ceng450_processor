@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="attributes" />
             <top_module name="numeric_std" />
@@ -15,7 +15,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/proc_16tb/rst" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -24,29 +24,17 @@
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/branch_trigger" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">branch_trigger</obj_property>
-      <obj_property name="ObjectShortName">branch_trigger</obj_property>
-   </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/pc_next" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pc_next[6:0]</obj_property>
-      <obj_property name="ObjectShortName">pc_next[6:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/pc" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pc[6:0]</obj_property>
-      <obj_property name="ObjectShortName">pc[6:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/rom_data" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rom_data[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_data[15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/proc_16tb/inport" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">inport[15:0]</obj_property>
       <obj_property name="ObjectShortName">inport[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/proc_16tb/outport" type="array" db_ref_id="1">
+   <wvobject fp_name="/proc_16tb/uut/outport" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">outport[15:0]</obj_property>
       <obj_property name="ObjectShortName">outport[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/branch_trigger" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">branch_trigger</obj_property>
+      <obj_property name="ObjectShortName">branch_trigger</obj_property>
    </wvobject>
    <wvobject fp_name="group26" type="group">
       <obj_property name="label">rf0</obj_property>
@@ -93,10 +81,10 @@
          <obj_property name="ElementShortName">wr_overflow</obj_property>
          <obj_property name="ObjectShortName">wr_overflow</obj_property>
       </wvobject>
-   </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/rf0/reg_file" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">reg_file[0:7]</obj_property>
-      <obj_property name="ObjectShortName">reg_file[0:7]</obj_property>
+      <wvobject fp_name="/proc_16tb/uut/rf0/reg_file" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_file[0:7]</obj_property>
+         <obj_property name="ObjectShortName">reg_file[0:7]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="group28" type="group">
       <obj_property name="label">alu0</obj_property>
@@ -136,12 +124,6 @@
          <obj_property name="ObjectShortName">n_flag</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="/proc_16tb/uut/merged_bits" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">merged_bits[15:0]</obj_property>
-      <obj_property name="ObjectShortName">merged_bits[15:0]</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#ffff00</obj_property>
-   </wvobject>
    <wvobject fp_name="group52" type="group">
       <obj_property name="label">pipeline_registers</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -176,6 +158,26 @@
       <wvobject fp_name="/proc_16tb/uut/ram0/dout" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">dout[15:0]</obj_property>
          <obj_property name="ObjectShortName">dout[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/ram0/ram" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">ram[4095:0]</obj_property>
+         <obj_property name="ObjectShortName">ram[4095:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group53" type="group">
+      <obj_property name="label">fetch</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/proc_16tb/uut/pc" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pc[6:0]</obj_property>
+         <obj_property name="ObjectShortName">pc[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/pc_next" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pc_next[6:0]</obj_property>
+         <obj_property name="ObjectShortName">pc_next[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/proc_16tb/uut/rom_data" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rom_data[15:0]</obj_property>
+         <obj_property name="ObjectShortName">rom_data[15:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
