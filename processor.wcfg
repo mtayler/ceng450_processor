@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="attributes" />
             <top_module name="numeric_std" />
@@ -127,17 +127,171 @@
    <wvobject fp_name="group52" type="group">
       <obj_property name="label">pipeline_registers</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="vbus75" type="vbus" db_ref_id="1">
+         <obj_property name="label">reg_if.opcode</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr[15]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr[14]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr[13]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr[12]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr[11]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr[10]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr[9]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr[9]</obj_property>
+         </wvobject>
+      </wvobject>
       <wvobject fp_name="/proc_16tb/uut/reg_if" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_if</obj_property>
          <obj_property name="ObjectShortName">reg_if</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.instr" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.instr</obj_property>
+            <obj_property name="ObjectShortName">reg_if.instr</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.inport" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.inport</obj_property>
+            <obj_property name="ObjectShortName">reg_if.inport</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_if.pc" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.pc</obj_property>
+            <obj_property name="ObjectShortName">reg_if.pc</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus103" type="vbus" db_ref_id="1">
+         <obj_property name="label">reg_id.opcode</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr[15]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr[14]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr[13]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr[12]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr[11]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr[10]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr[9]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr[9]</obj_property>
+         </wvobject>
       </wvobject>
       <wvobject fp_name="/proc_16tb/uut/reg_id" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_id</obj_property>
          <obj_property name="ObjectShortName">reg_id</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.instr" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.instr</obj_property>
+            <obj_property name="ObjectShortName">reg_id.instr</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.data1" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.data1</obj_property>
+            <obj_property name="ObjectShortName">reg_id.data1</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.data2" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.data2</obj_property>
+            <obj_property name="ObjectShortName">reg_id.data2</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_id.pc" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.pc</obj_property>
+            <obj_property name="ObjectShortName">reg_id.pc</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus127" type="vbus" db_ref_id="1">
+         <obj_property name="label">reg_ex.opcode</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr[15]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr[14]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr[13]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr[12]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr[11]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr[10]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr[9]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr[9]</obj_property>
+         </wvobject>
       </wvobject>
       <wvobject fp_name="/proc_16tb/uut/reg_ex" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">reg_ex</obj_property>
          <obj_property name="ObjectShortName">reg_ex</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.instr" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.instr</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.instr</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.result" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.result</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.result</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.overflow" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.overflow</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.overflow</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.pc" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.pc</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.pc</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.z_flag" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.z_flag</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.z_flag</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/reg_ex.n_flag" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.n_flag</obj_property>
+            <obj_property name="ObjectShortName">reg_ex.n_flag</obj_property>
+         </wvobject>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group47" type="group">
@@ -159,9 +313,73 @@
          <obj_property name="ElementShortName">dout[15:0]</obj_property>
          <obj_property name="ObjectShortName">dout[15:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/proc_16tb/uut/ram0/ram" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">ram[4095:0]</obj_property>
-         <obj_property name="ObjectShortName">ram[4095:0]</obj_property>
+      <wvobject fp_name="group4264" type="group">
+         <obj_property name="label">ram_sel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[15]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">ram[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[14]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">ram[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[13]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">ram[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[12]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">ram[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[11]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">ram[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[10]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">ram[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[9]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">ram[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[8]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">ram[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[7]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">ram[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[6]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">ram[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[5]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">ram[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[4]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">ram[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[3]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">ram[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[2]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">ram[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[1]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">ram[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/ram0/ram[0]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">ram[0]</obj_property>
+         </wvobject>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group53" type="group">
@@ -170,14 +388,48 @@
       <wvobject fp_name="/proc_16tb/uut/pc" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">pc[6:0]</obj_property>
          <obj_property name="ObjectShortName">pc[6:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/proc_16tb/uut/pc_next" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">pc_next[6:0]</obj_property>
          <obj_property name="ObjectShortName">pc_next[6:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/proc_16tb/uut/rom_data" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">rom_data[15:0]</obj_property>
          <obj_property name="ObjectShortName">rom_data[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus151" type="vbus" db_ref_id="1">
+         <obj_property name="label">opcode</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/proc_16tb/uut/rom_data[15]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">rom_data[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/rom_data[14]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">rom_data[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/rom_data[13]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">rom_data[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/rom_data[12]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">rom_data[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/rom_data[11]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">rom_data[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/rom_data[10]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">rom_data[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/proc_16tb/uut/rom_data[9]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">rom_data[9]</obj_property>
+         </wvobject>
       </wvobject>
    </wvobject>
 </wave_config>

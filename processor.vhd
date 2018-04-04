@@ -330,7 +330,7 @@ begin
 		) else reg_ID.data2;
 	
 	branch_trigger <= '1' when ( -- check opcode and conditions for branch
-			(opcode(reg_EX.instr)=BRR OR opcode(reg_EX.instr)=BR_SUB OR opcode(reg_EX.instr)=RET) -- BRR, BR_SUB or RETURN instruction (always branch)
+			(opcode(reg_EX.instr)=BR OR opcode(reg_EX.instr)=BRR OR opcode(reg_EX.instr)=BR_SUB OR opcode(reg_EX.instr)=RET) -- BR, BRR, BR_SUB or RETURN instruction (always branch)
 					OR ((opcode(reg_EX.instr)=BRR_N OR opcode(reg_EX.instr)=BR_N) AND reg_EX.n_flag='1') -- if NEG branch
 					OR ((opcode(reg_EX.instr)=BRR_Z OR opcode(reg_EX.instr)=BR_Z) AND reg_EX.z_flag='1') -- if ZERO branch
 			) 

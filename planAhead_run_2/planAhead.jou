@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Mon Apr  2 10:35:33 2018
+# Process ID: 37864
+# Log file: /home/mtayler/ceng450/processor/planAhead_run_2/planAhead.log
+# Journal file: /home/mtayler/ceng450/processor/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/mtayler/ceng450/processor/pa.fromNetlist.tcl
+set_property iostandard LVCMOS25 [get_ports [list {outport[15]} {outport[14]} {outport[13]} {outport[12]} {outport[11]} {outport[10]} {outport[9]} {outport[8]} {outport[7]} {outport[6]} {outport[5]} {outport[4]} {outport[3]} {outport[2]} {outport[1]} {outport[0]}]]
