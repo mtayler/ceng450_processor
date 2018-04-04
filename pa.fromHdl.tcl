@@ -1,7 +1,7 @@
 
 # PlanAhead Launch Script for Pre-Synthesis Floorplanning, created by Project Navigator
 
-create_project -name processor -dir "C:/Users/mtayler/Documents/ceng450_processor/planAhead_run_3" -part xc3s1200efg320-5
+create_project -name processor -dir "C:/Users/mtayler/Documents/ceng450_processor/planAhead_run_4" -part xc3s1200efg320-5
 set_param project.pinAheadLayout yes
 set srcset [get_property srcset [current_run -impl]]
 set_property target_constrs_file "motherboard.ucf" [current_fileset -constrset]

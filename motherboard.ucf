@@ -1,0 +1,25 @@
+
+
+NET "an[0]" LOC = F17;
+NET "an[1]" LOC = H17;
+NET "an[2]" LOC = C18;
+NET "an[3]" LOC = F15;
+NET "clk" LOC = U9;
+NET "rst" LOC = B18;
+NET "sseg[0]" LOC = L18;
+NET "sseg[1]" LOC = F18;
+NET "sseg[2]" LOC = D17;
+NET "sseg[3]" LOC = D16;
+NET "sseg[4]" LOC = G14;
+NET "sseg[5]" LOC = J17;
+NET "sseg[6]" LOC = H14;
+
+
+NET "inport[0]" LOC = G18;
+NET "inport[1]" LOC = H18;
+NET "inport[2]" LOC = K18;
+NET "inport[3]" LOC = K17;
+NET "inport[4]" LOC = L14;
+NET "inport[5]" LOC = L13;
+NET "inport[6]" LOC = N17;
+NET "inport[7]" LOC = R17;
