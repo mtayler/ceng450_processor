@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/mtayler/ceng450/processor/PROC_16TB_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/Users/mtayler/Documents/ceng450_processor/PROC_16TB_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="attributes" />
             <top_module name="numeric_std" />
@@ -15,7 +15,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="11" />
    <wvobject fp_name="/proc_16tb/rst" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -81,10 +81,10 @@
          <obj_property name="ElementShortName">wr_overflow</obj_property>
          <obj_property name="ObjectShortName">wr_overflow</obj_property>
       </wvobject>
-      <wvobject fp_name="/proc_16tb/uut/rf0/reg_file" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">reg_file[0:7]</obj_property>
-         <obj_property name="ObjectShortName">reg_file[0:7]</obj_property>
-      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/proc_16tb/uut/rf0/reg_file" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_file[0:7]</obj_property>
+      <obj_property name="ObjectShortName">reg_file[0:7]</obj_property>
    </wvobject>
    <wvobject fp_name="group28" type="group">
       <obj_property name="label">alu0</obj_property>

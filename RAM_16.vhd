@@ -19,7 +19,7 @@ port (
 end ram;
 
 architecture behavioral of ram is type ram_type is
-		array (4096-1 downto 0)
+		array (65536-1 downto 0)
 			of std_logic_vector (15 downto 0);
 	signal RAM : ram_type := (others => (others => '0'));
 begin

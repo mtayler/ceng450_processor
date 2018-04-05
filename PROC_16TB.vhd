@@ -96,7 +96,7 @@ BEGIN
    begin		
       -- hold reset state for 100 ns
 		rst <= '1';
-		inport <= x"0005";
+		inport <= x"0004";
       wait for 95 ns;
 		
 --		wait until falling_edge(clk); wait for clk_period/4;
