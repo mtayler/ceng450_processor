@@ -140,7 +140,7 @@ architecture Behavioral of processor is
 	PORT(
       clk : in  std_logic;
 		we : in  std_logic_vector (1 downto 0);
-      addr : in  std_logic_vector (11 downto 0);
+      addr : in  std_logic_vector (14 downto 0);
       din : in  std_logic_vector (15 downto 0);
 		dout : out std_logic_vector (15 downto 0)
 	);
@@ -236,7 +236,7 @@ begin
 	ram0 : ram PORT MAP (
 		clk => clk,
 		we => ram_wr_enable,
-		addr => ram_addr(11 downto 0),
+		addr => ram_addr(15 downto 1),
 		din => in2,
 		dout => ram_data
 	);
@@ -285,6 +285,7 @@ begin
 			else in2 when (opcode(reg_ID.instr)=LOAD)
 			else (others => '0');
 			
+	-- No logic for writing less than a word because no instructions support writing a byte
 	ram_wr_enable <= "11" when opcode(reg_ID.instr)=STORE else "00";
 	
 	-- r7 when BR_SUB otherwise ra

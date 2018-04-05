@@ -13,13 +13,14 @@ entity ram is
 port (
 	clk : in std_logic;
 	we: in std_logic_vector(1 downto 0);
-	addr : in std_logic_vector(11 downto 0);
+	addr : in std_logic_vector(14 downto 0);
 	din: in std_logic_vector(15 downto 0);
 	dout: out std_logic_vector(15 downto 0));
 end ram;
 
 architecture behavioral of ram is type ram_type is
-		array (65536-1 downto 0)
+		-- 2^16 byte memory (2^15 words)
+		array (32768-1 downto 0)
 			of std_logic_vector (15 downto 0);
 	signal RAM : ram_type := (others => (others => '0'));
 begin
