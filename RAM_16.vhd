@@ -19,8 +19,8 @@ port (
 end ram;
 
 architecture behavioral of ram is type ram_type is
-		-- 2^16 byte memory (2^15 words)
-		array (32768-1 downto 0)
+		-- 2^15 byte memory (2^14 words)
+		array (16384-1 downto 0)
 			of std_logic_vector (15 downto 0);
 	signal RAM : ram_type := (others => (others => '0'));
 begin
