@@ -57,6 +57,9 @@ webtalk_impact.xml
 *.exe.sim/
 *.exe
 *.wdb
+isim.cmd
+isim/
+xilinxsim.ini
 
 # Core Generator generated files
 xaw2verilog.log
