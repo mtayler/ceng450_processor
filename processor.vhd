@@ -299,7 +299,7 @@ begin
 	wr_overflow_data <= std_logic_vector(resize(unsigned(reg_EX.PC),16)) when opcode(reg_EX.instr)=BR_SUB
 			else reg_EX.overflow;
 	
-	PC_next <= std_logic_vector(resize(signed(reg_EX.result),7)) when (branch_trigger='1')
+	PC_next <= std_logic_vector(resize(unsigned(reg_EX.result),7)) when (branch_trigger='1')
 					else std_logic_vector(unsigned(PC) + instr_mem_size);
 	
 	-- result forwarding {
