@@ -45,7 +45,7 @@ architecture Behavioral of processor is
 
 	constant ADD : integer := 1;
 	constant SUB : integer := 2;
-	constant MULT : integer := 3;
+	constant MUL : integer := 3;
 	constant N_AND : integer := 4;
 	constant SHL : integer := 5;
 	constant SHR : integer := 6;
@@ -293,7 +293,7 @@ begin
 	
 	-- check if we have something to write back
 	wr_enable <= '1' when wr_instr(reg_EX.instr) else '0';
-	wr_overflow <= '1' when ((wr_instr(reg_EX.instr) AND reg_EX.instr(11 downto 9)="011") OR opcode(reg_EX.instr)=BR_SUB) OR opcode(reg_EX.instr)=LOADIMM  else '0';
+	wr_overflow <= '1' when opcode(reg_EX.instr)=MUL OR opcode(reg_EX.instr)=BR_SUB OR opcode(reg_EX.instr)=LOADIMM  else '0';
 	
 	-- write PC to r7 when BR_SUB, otherwise write overflow
 	wr_overflow_data <= std_logic_vector(resize(unsigned(reg_EX.PC),16)) when opcode(reg_EX.instr)=BR_SUB
@@ -305,7 +305,7 @@ begin
 	-- result forwarding {
 	-- (may need to add load instruction support, branch instructions should be covered by branch
 	in1 <= reg_EX.overflow when ( -- check for overflow forward
-			(opcode(reg_EX.instr)=MULT OR opcode(reg_EX.instr)=LOADIMM) AND ( -- when last instruction was multiply
+			(opcode(reg_EX.instr)=MUL OR opcode(reg_EX.instr)=LOADIMM) AND ( -- when last instruction was multiply
 				(a1_instr(reg_ID.instr) AND reg_ID.instr(5 downto 3)="111") -- A1 instruction and rb=7
 				OR (ra_instr(reg_ID.instr) AND reg_ID.instr(8 downto 6)="111") -- A2/OUT instruction and ra=7
 				OR (opcode(reg_ID.instr)=LOADIMM)                              -- LOADIMM instruction
@@ -319,7 +319,7 @@ begin
 		) else reg_ID.data1;
 	
 	in2 <= reg_EX.overflow when ( -- check for overflow forward
-			(opcode(reg_EX.instr)=MULT OR opcode(reg_EX.instr)=LOADIMM) AND ( -- when last instruction was multiply
+			(opcode(reg_EX.instr)=MUL OR opcode(reg_EX.instr)=LOADIMM) AND ( -- when last instruction was multiply
 				(a1_instr(reg_ID.instr) AND reg_ID.instr(2 downto 0)="111")    -- A1 instruction and rc=7              
 				OR (l2_instr(reg_ID.instr) AND reg_ID.instr(5 downto 3)="111") -- L2 instruction and rb=7
 			)

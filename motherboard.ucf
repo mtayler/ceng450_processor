@@ -23,3 +23,12 @@ NET "inport[4]" LOC = L14;
 NET "inport[5]" LOC = L13;
 NET "inport[6]" LOC = N17;
 NET "inport[7]" LOC = R17;
+
+TIMEGRP ROM=PADS("/proc/rom*");
+TIMEGRP IF=PADS("/proc/reg_IF.*");
+TIMEGRP ID=PADS("/proc/reg_ID.*");
+TIMEGRP EX=PADS("/proc/reg_EX.*");
+
+TIMESPEC TS_ROM_IF=FROM ROM TO IF 20;
+TIMESPEC TS_IF_ID=FROM IF TO ID 20;
+TIMESPEC TS_ID_EX=FROM ID TO EX 20;
